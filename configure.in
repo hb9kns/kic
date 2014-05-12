@@ -1,0 +1,117 @@
+dnl Configure input script for kic
+dnl Process this file with autoconf to produce a configure script.
+dnl Copyright (C) Whiteley Research Inc, 2002
+dnl $Id$
+
+dnl *** Initialize
+AC_INIT(src/bin/kicmain.c)
+VERSION="2.4b"
+DATE=`/bin/date`
+AC_SUBST(prefix)
+AC_SUBST(VERSION)
+AC_SUBST(DATE)
+
+dnl *** Check build environment
+AC_PROG_CC
+dnl text for MS Windows environmnet
+AC_CYGWIN
+AC_MINGW32
+if test x$MINGW32 = x"yes"; then
+    NTSUFFIX=".exe"
+    FILTER="|sed -e s///"
+    RESOURCE="kicrc.o"
+    NOCONS="-mwindows"
+    INSTALL_USER="-o Administrator -g Everyone"
+elif test x$CYGWIN = x"yes"; then
+    NTSUFFIX=".exe"
+    INSTALL_USER="-o Administrator -g Everyone"
+fi
+AC_SUBST(NTSUFFIX)
+AC_SUBST(FILTER)
+AC_SUBST(RESOURCE)
+AC_SUBST(NOCONS)
+AC_PROG_MAKE_SET
+AC_PROG_RANLIB
+if test -f /bin/arch; then
+    if test "`/bin/arch`" = "sun4"; then
+        SUN4=yes
+    fi
+fi
+if test "$GCC" = yes; then
+    DEPEND_PROG="gcc -MM"
+    if test x$SUN4 = x"yes"; then
+        dnl Solaris 8 with gcc: the ctype macros use arrays, which
+        dnl cause "char subscript" warnings, so these are turned off.
+        dnl The __EXTENSIONS__ macro is needed to make certain function
+        dnl prototypes visible
+        SUN4FLAGS="-Wno-implicit -Wno-char-subscripts -D__EXTENSIONS__"
+        CFLAGS="-O -Wall $SUN4FLAGS"
+    else
+        CFLAGS="-O -Wall"
+        CFLAGSG="-O -g -Wall"
+    fi
+else
+    DEPEND_PROG="cc -M"
+    CFLAGS="-O"
+fi
+if test -x /usr/ucb/install; then
+    INSTALL="/usr/ucb/install"
+else
+    INSTALL="install"
+fi
+if test x"$INSTALL_USER" = x; then
+    if test "`uname`" = Linux; then
+        INSTALL_USER="-o root -g root"
+    else
+        INSTALL_USER="-o root -g bin"
+    fi
+fi
+AC_SUBST(CFLAGS)
+AC_SUBST(DEPEND_PROG)
+AC_SUBST(INSTALL)
+AC_SUBST(INSTALL_USER)
+if test x$MINGW32 != x"yes"; then
+    MFB="../xmfb.a"
+fi
+AC_SUBST(MFB)
+
+dnl *** Checks for header files
+AC_HEADER_STDC
+AC_EGREP_HEADER(sys_errlist, stdio.h, AC_DEFINE(SYS_ERRLIST_DEF))
+
+dnl *** Checks for typedefs, structures, and compiler characteristics
+AC_C_CONST
+AC_HEADER_TIME
+AC_STRUCT_TM
+
+dnl *** Check for needed libraries
+dnl reverse order of link, order is important
+AC_CHECK_LIB(m, main)
+AC_PATH_XTRA
+
+if test x$MINGW32 = x"yes"; then
+    LIBS="-lgdi32 -lwinspool -lcomdlg32 -lole32 -loleaut32 -luuid \
+ -lodbc32 -lversion -lcomctl32 -lwsock32 -lws2_32 $LIBS"
+else
+    LIBS="-L$ac_x_libraries -lX11 $LIBS"
+fi
+
+CFLAGS="$CFLAGS -DUSE_OLD_MALLOC"
+AC_CHECK_HEADER(sys/ioctl.h, CFLAGS="$CFLAGS -DHAVE_SYS_IOCTL_H")
+AC_CHECK_FUNC(strlwr,  CFLAGS="$CFLAGS -DHAVE_STRLWR")
+AC_CHECK_FUNC(stricmp,  CFLAGS="$CFLAGS -DHAVE_STRICMP")
+
+dnl *** Perform subsitutions and create headers
+if test x$MINGW32 != x"yes"; then
+    xmfb="src/xmfb/Makefile"
+fi
+AC_OUTPUT(
+    src/bin/Makefile
+    src/cd/Makefile
+    src/convert/Makefile
+    src/ginterf/Makefile
+    src/help/Makefile
+    src/kic/Makefile
+    $xmfb
+)
+

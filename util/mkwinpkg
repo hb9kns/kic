@@ -1,0 +1,69 @@
+#! /bin/sh
+
+# Script to build a Windows package file.  This is called from the
+# Makefile in ../msw_package.
+
+version=$1
+if [ x"$version" == x ]; then
+    echo "No version given!"
+    exit
+fi
+program=kic
+
+# The inno packager exeutable.
+inno="/inno-5.2.2/iscc"
+
+topdir=data
+rm -rf $topdir
+mkdir $topdir
+
+bin=$topdir/bin
+lib=$topdir/lib
+kic=$lib/kic
+
+srclib=..
+
+mkdir $bin
+mkdir $lib
+mkdir $kic
+
+echo Copying files for export ...
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kic.exe $bin
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/ciftokic.exe $bin
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kichelp.exe $bin
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kictocif.exe $bin
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kictostr.exe $bin
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kicscale.exe $bin
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/strmtext.exe $bin
+install -sc -m 0755 -o Administrator -g None $srclib/src/bin/strtokic.exe $bin
+
+cp $srclib/startup/* $kic
+utod $kic/*
+utod $kic/README
+utod $kic/kic_help.txt
+utod $kic/kic_tech
+utod $kic/kic_tech.110
+utod $kic/kic_tech.220
+utod $kic/kic_tech.300
+utod $kic/kic_tech.hyp
+utod $kic/kic_tech.scm
+utod $kic/logofont.kic
+utod $kic/ltab
+utod $kic/ltab.hyp
+utod $kic/ltab.trw
+
+echo Completed copying files, building package ...
+
+sed -e s/VERSION/$version/ < $program.iss.in > $program.iss
+utod $program.iss
+
+$inno $program.iss > build.log
+if [ $? != 0 ]; then
+    echo Compile failed!
+    exit 1
+fi
+
+mv Output/*.exe .
+rmdir Output
+rm $program.iss
+echo Done

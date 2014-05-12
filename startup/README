@@ -1,0 +1,20 @@
+Files in KIC startup directory
+
+kic_help.txt .................. Help Database
+kic_tech     .................. default technology (copy of kic_tech.scm)
+kic_tech.110 .................. TRW process 110 technology file
+kic_tech.220 .................. TRW process 220 technology file
+kic_tech.300 .................. TRW process 300 technology file
+kic_tech.hyp .................. Hypres Nb technology file
+kic_tech.scm .................. Mosis scalable CMOS technology file
+logofont.kic .................. Font file for "logo" command
+ltab         .................. Layer table file (obsolete, still
+                                can be used by stand-alone stream
+                                converters)
+ltab.trw
+ltab.hyp
+
+
+NOTE: if the supplied logofont.kic is not 54539 bytes, it has been
+      corrupted.  This file is a renamed HP laserjet font file (.hpf
+      file) for WordPerfect 5.1.

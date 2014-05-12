@@ -1,0 +1,9 @@
+
+#include "windows.h"
+#include "winver.h"
+
+#define IDR_MAINFRAME 1
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+IDR_MAINFRAME ICON DISCARDABLE "kic.ico"

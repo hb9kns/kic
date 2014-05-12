@@ -1,0 +1,134 @@
+Path? ( .  ) 
+
+LayerName? SUBS
+RGB? 0 5 200
+Symbolic? n
+Filled? n
+AltFilled? n
+MinDimensions 0
+StreamData? 1 0
+
+LayerName? HTS1
+RGB? 10 190 15
+Symbolic? n
+Filled? 11 22 40 88 11 02 44 88 outline
+AltFilled? 11 22 40 88 11 02 44 88 outline
+MinDimensions 0
+StreamData? 2 0
+
+LayerName? CONT
+RGB? 255 250 5
+Symbolic? n
+Filled? 00 00 10 00 00 00 00 00 outline
+AltFilled? n
+MinDimensions 0
+StreamData? 3 0
+
+LayerName? RESI
+RGB? 255 170 227
+Symbolic? n
+Filled? 11 0e 02 62 91 28 48 90 outline
+AltFilled? 88 44 22 11 88 44 22 11 outline
+MinDimensions 0
+StreamData? 4 0
+
+LayerName? DIE0
+RGB? 180 10 12
+Symbolic? n
+Filled? 10 10 10 10 10 10 10 10 outline
+AltFilled? 11 11 11 11 11 11 11 11 outline
+MinDimensions 0
+StreamData? 5 0
+
+LayerName? WIR0
+RGB? 0 40 130
+Symbolic? n
+Filled? 01 02 04 08 10 20 40 80 outline
+AltFilled? 01 02 04 08 10 20 40 80 outline
+MinDimensions 0
+StreamData? 6 0
+
+LayerName? DIE1
+RGB? 0 150 5
+Symbolic? n
+Filled? 00 00 10 00 00 00 00 00 outline
+AltFilled? 00 00 00 ff 00 00 00 ff outline
+MinDimensions 0
+StreamData? 7 0
+
+LayerName? WIR1
+RGB? 250 2 250
+Symbolic? n
+Filled? 80 40 20 10 08 04 02 01 outline
+AltFilled? 80 40 20 10 08 04 02 01 outline
+MinDimensions 0
+StreamData? 8 0
+
+LayerName? text
+RGB? 250 255 250
+Symbolic? n
+Filled? n
+AltFilled? n
+MinDimensions 0
+StreamData? 9 0
+
+LayerName? algn
+RGB? 155 170 130
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 10 0
+
+LayerName? nDRC
+RGB? 200 0 165
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 11 0
+
+LayerName? y0  
+RGB? 70 200 200
+Symbolic? n
+Filled? 81 42 24 99 42 24 42 81
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 12 0
+
+LayerName? y1  
+RGB? 190 90 197
+Symbolic? n
+Filled? 01 02 04 08 10 20 40 80 outline
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 13 0
+
+Highlighting 215 220 230
+Background 0 0 0
+MenuText 10
+MenuSelect 11
+MenuHighlighting 5
+MenuPrompt 1
+MoreText 10
+FineGrid 5
+CoarseGrid 6
+InstanceBox 10
+InstanceName 12
+InstanceSize 5
+GridSpacing 1
+GridStyle 204
+AltShowGrid
+RoundFlashSides 40
+AltDevice prn
+AltResolution 300
+AltFormat p
+Snapping 2
+FineViewportOnSide
+FontName 
+BeepVolume 0
+

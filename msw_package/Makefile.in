@@ -1,0 +1,18 @@
+VERSION = @VERSION@
+
+# This will create a Windows package in the current directory.  It needs
+# 1) the inno packager installed in /inno-5.2.2
+# 2) a utod program accessible somewhere (you can build ../util/utod.c)
+# 
+# You can tune ../util/build and/or kic.iss.in to your needs.
+
+
+package::
+	../util/mkwinpkg $(VERSION)
+	rm -rf data kic.iss
+
+clean::
+	rm -rf data kic.iss *.exe *.log
+
+distclean::
+	rm -rf data kic.iss *.exe *.log Makefile

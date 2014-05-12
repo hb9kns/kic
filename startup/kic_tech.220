@@ -1,0 +1,108 @@
+Path? ( .  ) 
+
+LayerName? JUNC
+RGB? 250 250 0
+Symbolic? n
+Filled? 00 55 00 82 10 82 00 55 outline
+AltFilled? c3 c6 6c 38 38 6c c6 c3 outline
+MinDimensions 5
+StreamData? 1 0
+
+LayerName? TRIE
+RGB? 0 255 0
+Symbolic? n
+Filled? y
+AltFilled? 00 55 00 82 10 82 00 55 outline
+MinDimensions 4
+StreamData? 2 0
+
+LayerName? SIOA
+RGB? 255 170 130
+Symbolic? n
+Filled? y
+AltFilled? y
+MinDimensions 3
+StreamData? 3 0
+
+LayerName? WIRA
+RGB? 0 170 220
+Symbolic? n
+Filled? 11 22 44 88 11 22 44 88 outline
+AltFilled? 10 20 40 80 01 02 04 08 outline
+MinDimensions 4
+StreamData? 4 0
+
+LayerName? RESI
+RGB? 230 40 0
+Symbolic? n
+Filled? 89 18 24 c2 43 24 18 91 outline
+AltFilled? 66 00 00 00 66 00 00 00 outline
+MinDimensions 4
+StreamData? 5 0
+
+LayerName? SIOB
+RGB? 255 140 35
+Symbolic? n
+Filled? 81 42 3c 00 24 24 42 81 outline
+AltFilled? 81 42 3c 00 24 24 42 81 outline
+MinDimensions 3
+StreamData? 6 0
+
+LayerName? WIRB
+RGB? 190 90 197
+Symbolic? n
+Filled? 88 44 22 11 88 44 22 11 outline
+AltFilled? 80 40 20 10 08 04 02 01 outline
+MinDimensions 4
+StreamData? 7 0
+
+LayerName? GOLD
+RGB? 255 170 227
+Symbolic? n
+Filled? n
+AltFilled? n
+MinDimensions 4
+StreamData? 8 0
+
+LayerName? TEXT
+RGB? 255 255 255
+Symbolic? y
+Filled? n
+AltFilled? n
+MinDimensions 0
+StreamData? 9 0
+
+LayerName? NOSI
+RGB? 255 255 255
+Symbolic? y
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 10 0
+
+Highlighting 215 220 230
+Background 0 0 0
+MenuText 255 255 255
+MenuSelect 255 255 255
+MenuHighlighting 230 40 0
+MenuPrompt 250 250 0
+MoreText 255 255 255
+FineGrid 230 40 0
+CoarseGrid 255 140 35
+InstanceBox 255 170 227
+InstanceName 230 40 0
+InstanceSize 190 90 197
+GridSpacing 1
+GridStyle 204
+AltShowGrid
+DisplayAllText
+RoundFlashSides 40
+AltDevice prn
+AltResolution 150
+AltFormat p
+Snapping 2
+FineViewportOnSide
+FontName 
+BeepVolume 0
+

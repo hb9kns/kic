@@ -1,0 +1,181 @@
+Path? ( .  ) 
+
+LayerName? M1  
+RGB? 255 10 0
+Symbolic? n
+Filled? y
+AltFilled? 89 18 24 c2 43 24 18 91 outline
+MinDimensions 0
+StreamData? 1 0
+
+LayerName? I1A 
+RGB? 200 10 255
+Symbolic? n
+Filled? y
+AltFilled? 08 14 22 41 82 44 28 10 outline
+MinDimensions 0
+StreamData? 2 0
+
+LayerName? I1B 
+RGB? 110 160 255
+Symbolic? n
+Filled? y
+AltFilled? 11 22 40 88 11 02 44 88 outline
+MinDimensions 0
+StreamData? 3 0
+
+LayerName? R2  
+RGB? 240 255 55
+Symbolic? n
+Filled? 81 42 24 18 18 24 42 81 outline
+AltFilled? 66 00 00 66 66 00 00 66 outline
+MinDimensions 0
+StreamData? 9 0
+Resistance 1
+
+LayerName? M2  
+RGB? 30 255 0
+Symbolic? n
+Filled? 00 ff 00 ff 00 ff 00 ff
+AltFilled? 42 c3 00 00 00 00 c3 42 outline
+MinDimensions 0
+StreamData? 6 0
+
+LayerName? I2  
+RGB? 165 95 10
+Symbolic? n
+Filled? ff ab d5 bb dd ab d5 ff outline
+AltFilled? 88 44 22 11 88 44 22 11 outline
+MinDimensions 0
+StreamData? 8 0
+tranline 0.275 0.085 0.275 0.085 0.3 4
+
+LayerName? M3  
+RGB? 210 220 205
+Symbolic? n
+Filled? 55 55 55 55 55 55 55 55
+AltFilled? 00 00 3c 24 24 3c 00 00 outline
+MinDimensions 0
+StreamData? 10 0
+
+LayerName? R3  
+RGB? 55 20 255
+Symbolic? n
+Filled? 11 22 44 88 11 22 44 88 outline
+AltFilled? 11 22 44 88 11 22 44 88 outline
+MinDimensions 0
+StreamData? 11 0
+
+LayerName? M0  
+RGB? 255 235 230
+Symbolic? n
+Filled? 00 00 00 08 08 00 00 00
+AltFilled? 00 00 42 00 24 00 42 00 outline
+MinDimensions 0
+StreamData? 30 0
+
+LayerName? I0  
+RGB? 175 235 155
+Symbolic? n
+Filled? 18 00 00 81 81 00 00 18
+AltFilled? 88 48 24 13 c8 24 12 11 outline
+MinDimensions 0
+StreamData? 31 0
+
+LayerName? B1  
+RGB? 180 250 150
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 4 0
+
+LayerName? B2  
+RGB? 60 20 200
+Symbolic? n
+Filled? n
+AltFilled? 55 00 55 00 55 00 55 00
+AltInvisible
+MinDimensions 0
+StreamData? 5 0
+
+LayerName? B3  
+RGB? 190 80 0
+Symbolic? y
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 7 0
+
+LayerName? B4  
+RGB? 175 170 255
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 21 0
+
+LayerName? B5  
+RGB? 255 0 10
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 22 0
+
+LayerName? B6  
+RGB? 0 225 0
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 23 0
+
+LayerName? B7  
+RGB? 150 150 170
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 24 0
+
+LayerName? B8  
+RGB? 150 150 170
+Symbolic? n
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 0 0
+             
+Highlighting 0 0 255
+Background 0 0 0
+MenuText 7
+MenuSelect 11
+MenuHighlighting 1
+MenuPrompt 1
+MoreText 10
+FineGrid 3
+CoarseGrid 14
+InstanceBox 10
+InstanceName 3
+InstanceSize 1
+GridSpacing 0.5
+GridStyle 0
+GridOnBottom
+RoundFlashSides 20
+AltDevice prn
+AltResolution 150
+AltFormat p
+Snapping 1
+FineViewportOnSide
+SplitScreen
+FontName 
+BeepVolume 0
+

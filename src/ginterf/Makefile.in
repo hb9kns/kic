@@ -1,0 +1,61 @@
+#######################################################################
+# src/ginterf/Makefile.in
+#######################################################################
+# $Id$
+#######################################################################
+
+VERSION = @VERSION@
+DATE = @DATE@
+
+CC = @CC@
+CFLAGS = @CFLAGS@
+DEPEND_PROG = @DEPEND_PROG@
+RANLIB = @RANLIB@
+FILTER = @FILTER@
+
+LIB_TARGET = ../ginterf.a
+HFILES =
+CFILES = fb.c ginterf.c wfb.c
+ALLFILES = $(CFILES) $(HFILES) Makefile.in
+COBJS = $(CFILES:.c=.o)
+INCLUDE = -I../include
+
+$(LIB_TARGET): $(COBJS)
+	ar r $(LIB_TARGET) $?
+	$(RANLIB) $(LIB_TARGET)
+
+co: $(ALLFILES)
+
+$(ALLFILES):
+	-@if [ ! -h $@ ]; then \
+	   co $@; \
+	fi;
+
+ci:
+	-@for aa in $(ALLFILES);  do\
+	    if [ ! -h $$aa ]; then \
+	        rcsdiff $$aa > /dev/null 2>&1; \
+	        if [ $$? = 1 ]; then \
+	            rcs -l $$aa > /dev/null 2>&1; \
+	            ci -r$(VERSION) $$aa; \
+	        fi; \
+	    fi \
+	done
+
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDE) -c $*.c
+
+depend:
+	@echo depending in src/ginterf
+	@if [ x$(DEPEND_DONE) = x ]; then \
+	    echo DEPEND_DONE = 1 >> Makefile; \
+	    $(DEPEND_PROG) $(INCLUDE) $(CFILES) $(FILTER) >> Makefile; \
+	fi
+
+clean:
+	-rm *.o $(LIB_TARGET)
+
+distclean:
+	-rm *.o $(LIB_TARGET) Makefile
+
+#######################################################################

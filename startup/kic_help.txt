@@ -1,0 +1,1873 @@
+!!KEYWORD
+help
+!!TITLE
+help
+!!TEXT
+    KIC is distributed by Whiteley Research Inc., www.wrcad.com.
+
+    Welcome to the KIC help system.  Point to the commands for a
+    description of their function.  Exit the help system by hitting
+    ESCAPE.
+
+!!SUBTOPICS
+commands
+techfile
+electric
+keyboard
+pointer
+scrn
+utilities
+
+!!KEYWORD
+a45s
+!!TITLE
+45s
+!!TEXT
+    When on, wire and polygon vertices are constrained to form
+    angles of multiples of 45 degrees.
+
+!!KEYWORD
+adlyr
+!!TITLE
+adlyr
+!!TEXT
+    Add a layer to the layer menu.
+
+!!SEEALSO
+rmove
+
+!!KEYWORD
+adprp
+!!TITLE
+adprp
+!!TEXT
+    Add a property to the selected objects.  A property consists
+    of a value and a string, and is stored in the symbol file.
+    Properties are not used within KIC, but may be needed for
+    future interfaces.  
+
+!!SEEALSO
+rmprp
+show
+
+!!KEYWORD
+alloc
+!!TITLE
+alloc
+!!TEXT
+    Print the number of objects in the current cell.
+
+!!KEYWORD
+arc
+!!TITLE
+arc
+!!TEXT
+    Create an arc.  The sides command can be used to reset the
+    number of segments used.
+
+!!SEEALSO
+sides
+
+!!KEYWORD
+area
+!!TITLE
+area
+!!TEXT
+    Set area select mode.  Selected objects overlap the rectangle
+    defined by two successive point operations.
+
+!!SEEALSO
+selec
+layer
+
+!!KEYWORD
+array
+!!TITLE
+array
+!!TEXT
+    The user is prompted for parameters for cell array creation.
+
+!!SEEALSO
+place
+
+!!KEYWORD
+attri
+!!TITLE
+attri
+!!TEXT
+    Change to the Attrubutes Menu.  The Attributes menu contains
+    commands for modifying the presentation format of KIC.
+
+!!KEYWORD
+bang
+!!TITLE
+!
+!!TEXT
+    Text following ! is processed by an operating system shell.
+    This can only be used for simple commands, which do not
+    require interactivity.  However, if no text follows "!",
+    KIC places the user in an interactive subshell.  In DOS,
+    type "exit" to return to KIC.
+
+!!KEYWORD
+basic
+!!TITLE
+basic
+!!TEXT
+    Change to the Basic Menu.  The Basic Menu contains commands
+    for creating geometries and editing new cells.
+
+!!KEYWORD
+blink
+!!TITLE
+blink
+!!TEXT
+    Set layer to blink (not implemented).
+
+!!KEYWORD
+boxes
+!!TITLE
+boxes
+!!TEXT
+    Create rectangles on the currently selected layer.  Point
+    to the diagonal corners of the rectangle.  The first corner
+    is marked during rectangle creation.  If electrical parameters
+    are specified in the technology file for the current layer,
+    a readout of an electrical parameter (capacitance, resistance,
+    or transmission line parameters) is provided for the newly
+    created rectangle.  Using pointer device button 4 will provide
+    the readout, without actually creating the rectangle.
+
+!!SEEALSO
+button4
+electric
+
+!!KEYWORD
+break
+!!TITLE
+break
+!!TEXT
+    Divide geometries along a horizontal or vertical line.  If
+    the current rotation is 0 or 180, the line is vertical,
+    otherwise it is horizontal.
+
+!!SEEALSO
+rotate
+
+!!KEYWORD
+button1
+!!TITLE
+button1
+!!TEXT
+    This button is used for point operations.  The Enter key
+    simulates a button 1 event, at the current pointer location.
+
+!!KEYWORD
+button2
+!!TITLE
+button2
+!!TEXT
+    This button performs a pan operation in full screen mode, or
+    sets the fine viewport center in split screen mode.  In DOS,
+    ctrl-ENTER simulates a button 2 event.
+
+!!KEYWORD
+button3
+!!TITLE
+button3
+!!TEXT
+    This button, used twice, performs a window operation in full
+    screen mode, or defines a new fine window in split screen mode.
+    If the DOS keyboard pointer is in use, alt-ENTER simulates a
+    button 3 event.
+
+!!KEYWORD
+button4
+!!TITLE
+button4
+!!TEXT
+    This button performs no operation, but updates the coordinate
+    parameters as displayed on-screen.  The space bar simulates
+    a button 4 event, as does the Delete key under DOS.  Most
+    common pointing devices have only three buttons, in which
+    case the button 4 function is available only from the keyboard.
+
+!!SEEALSO
+spacebar
+
+!!KEYWORD
+bw
+!!TITLE
+bw
+!!TEXT
+    Show the number of features drawn per second.
+
+!!KEYWORD
+chlyr
+!!TITLE
+chlyr
+!!TEXT
+    Change the layer of the selected geometries.  The user is
+    prompted for the new layer.
+
+!!SEEALSO
+selec
+area
+
+!!KEYWORD
+ciftokic
+!!TITLE
+ciftokic
+!!TEXT
+    Usage: ciftokic [options] [cif_file]
+
+    options:
+      -Lmicprl    Microns per lambda (default 1.0).
+      -prefix     (cif dialect) where prefix =
+         k           Generated from KIC
+         a Stanford: A Stanford symbol name follows a DS command as
+                     in (PadIn);
+         b NCA:      An NCA symbol name follows a DS command as in
+                     (PadIn);
+         h IGS:      A KIC or IGS symbol name follows a DS command
+                     as in 9 PadIn; 
+         i Icarus:   An Icarus symbol name follows a DS command as
+                     in (9 PadIn);
+         q Squid:    A Squid symbol name follows a DS command as in
+                     9 /usr/joe/PadIn;
+         s Sif:      A Sif symbol name follows a DS command as in
+                     (Name: PadIn);
+         n none of the above\n");
+
+    Will prompt for cif input file name if not specified, hit
+    return for help.
+
+!!KEYWORD
+cnams
+!!TITLE
+cnams
+!!TEXT
+    When on, display the names of unexpanded cells.
+
+!!KEYWORD
+cntxt
+!!TITLE
+cntxt
+!!TEXT
+    With this switch on, the context is displayed during a subedit.
+    The context is the surrounding geometry in cells other than the
+    cell being edited.
+
+!!SEEALSO
+push
+pop
+
+!!KEYWORD
+cnvrt
+!!TITLE
+cnvrt
+!!TEXT
+    KIC has built-in translators for Calma GDSII and CIF formats.
+    This command brings up a submenu containing commands which
+    perform the translations.  A file "convert.log" is created
+    in the current directory, which contains a record of messages
+    emitted during the conversion.
+
+!!SUBTOPICS
+frcif
+frgds
+tocif
+togds
+
+!!KEYWORD
+color
+!!TITLE
+color
+!!TEXT
+    The color command presents a submenu allowing the user to
+    change the colors of various screen objects.  If KIC is
+    running on systems with more than 32 colors available, the
+    screen colors are separate from the layer colors.  Other-
+    wise the screen colors are mapped into the layer colors.
+    The objects that are presented in the menu are the high-
+    lighting and background colors, the menu text, selcted text,
+    and highlighting colors, the prompt line color, the colors
+    used for the "more" text, the grid colors, and the colors
+    used to display unexpanded instances.  These colors are set
+    either with the +r, etc. buttons, or by pointing to the
+    layer table in the merged color mode.
+
+!!SEEALSO
+plusretc
+
+!!KEYWORD
+commands
+!!TITLE
+Menu Commands
+!!TEXT
+    KIC has two main menus.  The Basic menu contains commands
+    for creating geometries and otherwise modifying cells.
+    The Attributes menu contains commands which modify the
+    display. In addition, the Properties menu allows property
+    strings and values to be associated with objects (not used
+    by KIC presently), and the Debug menu has commands for
+    displaying some internal parameters.  Some commands provide
+    temporary submenus.
+
+    Commands are executed by pointing at the menu, or by typing
+    the command prefix shown in upper case (input is case
+    insensitive).  Commands can be exited by selecting another
+    command in most cases, or by hitting the ESCAPE key.  Some
+    commands are switches which remain in effect until selected
+    again.
+
+!!SUBTOPICS
+a45s
+adlyr
+adprp
+alloc
+arc
+area
+array
+attri
+basic
+blink
+boxes
+break
+bw
+chlyr
+cnams
+cntxt
+cnvrt
+color
+copy
+crsym
+cursr
+debug
+delet
+desel
+dimen
+dir
+donut
+edit
+erase
+expnd
+fill
+flash
+flatn
+font
+grid
+hcopy
+help
+label
+labls
+last
+layer
+llref
+logo
+mark
+mirror
+move
+pan
+peek
+place
+plusretc
+polyg
+pop
+prpty
+push
+quit
+rdraw
+rgb
+rmove
+rmprp
+rotate
+save
+selec
+show
+sides
+snap
+strch
+tbrl
+undo
+updat
+view
+visib
+width
+windo
+wires
+xor
+zoom
+
+!!KEYWORD
+copy
+!!TITLE
+copy
+!!TEXT
+    Copy an object.  If objects are previously selected, the group
+    will be copied to new locations.  If no objects have been
+    selected, the user is asked to point to an object to copy.
+    Responding to the prompts, the user first points to a ref-
+    erence point, then to a destination.  The copy is produced
+    such that the reference point falls on the destination point.
+    The orientation of the copied object is altered according to
+    the current transformation.  Multiple copies are made by
+    simply pointing to additional destinations.
+
+!!SEEALSO
+move
+rotate
+mirror
+
+!!KEYWORD
+crsym
+!!TITLE
+crsym
+!!TEXT
+    Create a new symbol file from the currently selected objects.
+    The user is prompted for a name for the new file.
+
+!!SEEALSO
+selec
+area
+flatn
+
+!!KEYWORD
+ctrla
+!!TITLE
+ctrl-a
+!!TEXT
+    Entering ^A has the same effect as the exit command.
+
+!!SEEALSO
+quit
+
+!!KEYWORD
+ctrle
+!!TITLE
+ctrl-e
+!!TEXT
+    Pressing ^E prompts the user for a coordinate pair, which
+    is then used in a point operation.  ^C has the same effect
+    as ^E.
+
+!!KEYWORD
+ctrlf
+!!TITLE
+ctrl-f
+!!TEXT
+    After hitting ^F, the user can point once to pan in full screen
+    mode, or define the center of the fine window in split screen
+    mode.
+
+!!SEEALSO
+pan
+button2
+
+!!KEYWORD
+ctrlg
+!!TITLE
+ctrl-g
+!!TEXT
+    After hitting ^G, the user points twice to define a new window
+    in full screen mode, or a new fine window if in split screen
+    mode.
+
+!!SEEALSO
+windo
+button3
+
+!!KEYWORD
+ctrll
+!!TITLE
+ctrl-l
+!!TEXT
+    After hitting ^L, the user is prompted for a number, which
+    corresponds to a layer.  The current layer is set to that
+    layer.
+
+!!SEEALSO
+fkeys
+
+!!KEYWORD
+ctrln
+!!TITLE
+ctrl-n
+!!TEXT
+    A view can be saved at any time by hitting ^N.  The view is
+    assigned a letter, which may be recalled with the Last command.
+
+!!SEEALSO
+last
+
+!!KEYWORD
+ctrlt
+!!TITLE
+ctrl-t
+!!TEXT
+    ^T toggles whether the fine viewport is on the bottom or to
+    the right in split screen mode.
+
+!!SEEALSO
+zoom
+
+!!KEYWORD
+ctrlv
+!!TITLE
+ctrl-v
+!!TEXT
+    Print the KIC version number on the message line.
+
+!!KEYWORD
+cursr
+!!TITLE
+cursr
+!!TEXT
+    Under the X window system, a variety of cursors are available.
+    This command produces a menu from which to choose.  Point to
+    the desired cursor, then press ENTER.
+
+!!SEEALSO
+xwindows
+
+!!KEYWORD
+debug
+!!TITLE
+debug
+!!TEXT
+    Change to the Debug Menu.  The Debug Menu has commands for
+    viewing some internal parameters.
+
+!!KEYWORD
+delet
+!!TITLE
+delet
+!!TEXT
+    Delete the selected objects (can be undone).
+
+!!KEYWORD
+desel
+!!TITLE
+desel
+!!TEXT
+    Deselect the currently selected objects.
+
+!!SEEALSO
+selec
+
+!!KEYWORD
+dimen
+!!TITLE
+dimen
+!!TEXT
+    Set the minimum dimension of a layer.
+
+!!KEYWORD
+dir
+!!TITLE
+dir
+!!TEXT
+    Display a listing of symbol files found along the KIC path.
+
+!!KEYWORD
+donut
+!!TITLE
+donut
+!!TEXT
+    Create a 360 degree arc with a hole.  The number of segments
+    used can be altered with the sides command.
+
+!!SEEALSO
+sides
+
+!!KEYWORD
+edit
+!!TITLE
+edit
+!!TEXT
+    Load a cell for editing.
+
+!!KEYWORD
+electric
+!!TITLE
+Electrical Parameters
+!!TEXT
+    KIC provides the facility for generating a readout of elec-
+    trical parameters while creating rectangles.  One must supply
+    the appropriate information to the desired layers in the
+    technology file.  There are three possibilities: resistance,
+    capacitance, or microstripline parameters.  The microstripline
+    parameters assume that propagation is along the longer
+    dimension of the rectangle.  The resistance readout provides
+    information for both orientations.  The microstripline model
+    assumes that the underlying area contains ground plane, with a
+    specified dielectric thickness, i.e., no account is taken of
+    the "real" geometry.
+
+!!SEEALSO
+boxes
+techfile
+
+!!KEYWORD
+enter
+!!TITLE
+Enter
+!!TEXT
+    Pressing Enter (or Return on some keyboards) initiates a point
+    operation at the current pointer location, with the same effect
+    as pressing mouse button 1.
+
+!!SEEALSO
+button1
+
+!!KEYWORD
+erase
+!!TITLE
+erase
+!!TEXT
+    Rectanglar regions of polygons and boxes can be erased with
+    this command.  The user points twice to define the diagonal
+    of the region to be erased.  If in layer mode, only the 
+    current layer is erased, otherwise all layers are erased.
+    Selected objects are not erased.
+
+!!SEEALSO
+layer
+selec
+
+!!KEYWORD
+escape
+!!TITLE
+Esc
+!!TEXT
+    The ESCAPE key flushes the keyboard buffer, and terminates
+    most commands.
+
+!!KEYWORD
+expnd
+!!TITLE
+expnd
+!!TEXT
+    When on, subcells are shown in expanded (all features visible)
+    form.  Otherwise, only the bounding box is shown.
+
+!!SEEALSO
+peek
+
+!!KEYWORD
+fill
+!!TITLE
+fill
+!!TEXT
+    Edit the fill patterns assigned to the layers.  The left
+    column of the display contains solid and empty patterns,
+    and the editing window.  Second to left is a preview of
+    the pattern in the editing window.  The remaining columns
+    contain sample fill patterns.  Following the prompt, one
+    loads a fill pattern by pointing to either a stippled layer
+    in the layer menu, or one of the sample fillpattern fields.
+    Once loaded, the pattern can be edited by pointing at pixel
+    locations in the editing window.  This toggles the pixels
+    on and off.  When finished, point to the preview panel,
+    then to the desired layer in the layer menu.  Empty or
+    solid fill patterns can not be loaded from layers.  An
+    empty or solid fill can be assigned to a layer by first
+    pointing at the appropriate location in the left column,
+    then to the desired layer.  Point to the fill command menu
+    entry to end the session.
+
+!!SEEALSO
+updat
+
+!!KEYWORD
+fkeys
+!!TITLE
+function keys
+!!TEXT
+    Under DOS, pressing the function keys F1-F12 selects one of the
+    12 displayed layers in the layer table.  If there are more than
+    12 layers defined, then a "more" button will exist in the layer
+    menu.  Pointing at the more button will cycle through the layer
+    table, showing 12 layers at a time.
+
+!!KEYWORD
+flash
+!!TITLE
+flash
+!!TEXT
+    Create a disk object.  The number of sides can be altered with
+    the sides command.
+
+!!SEEALSO
+sides
+
+!!KEYWORD
+flatn
+!!TITLE
+flatn
+!!TEXT
+    Smash the chosen subcells (and sub-subcells they contain)
+    into the parent cell.  The hierarchy is flattened.
+
+!!KEYWORD
+font
+!!TITLE
+font
+!!TEXT
+    Under X windows, the user has a choice of fonts.  The same font is
+    used for all text in KIC.  This command displays a list of
+    available fonts.  Select a font by pointing at the list, then hit
+    ^D (control-d).
+
+    In the native-Windows version, this command can be used to change
+    the size of the font.  The user is prompted for a character cell
+    size, in a form like "7x13".
+
+    In either case, the updat command will save the new font in the
+    technology file, using the FontName keyword.  Note that under
+    Windows, the FontName is in the form "WxH", for example "8x15",
+    whereas under UNIX the FontName is the name of an X font.
+
+!!SEEALSO
+updat
+xwindows
+
+!!KEYWORD
+frame
+!!TITLE
+frame
+!!TEXT
+    This sets the view produced in the hardcopy, which
+    otherwise defaults to the full cell.  Point at the
+    diagonal endpoints  of  the  region to be plotted.
+    This region will appear in the plot.  Point at the
+    command button again to turn this feature off, and
+    plot the full cell. The plot is actually generated
+    with the "go" command.
+
+!!KEYWORD
+frcif
+!!TITLE
+frcif
+!!TEXT
+    This command creates a family of KIC symbol files from a CIF
+    database file.  The user is prompted for the name of the CIF
+    file.  Care should be taken to avoid overwriting existing
+    files during conversion, as there is no checking. The user
+    is reminded of this by a message.  The converter has built-in
+    intelligence to determine the style of CIF to be converted,
+    which is one of
+
+    KIC:      symbol name follows a DS command as in 9 PadIn;
+    IGS:      symbol name follows a DS command as in 9 PadIn;
+    Stanford: symbol name follows a DS command as in (PadIn);
+    NCA:      symbol name follows a DS command as in (PadIn);
+    Icarus:   symbol name follows a DS command as in (9 PadIn);
+    Sif:      symbol name follows a DS command as in (Name: PadIn);
+    none:     No symbol names.
+
+    If no symbol name can be found, symbol files are named
+    "symbolN" where N is the number of the symbol as known to CIF.
+
+    Layers which are integers are mapped into the current layer 
+    table, if the table entry corresponding to the number has been
+    defined.  Otherwise, the line is left as is, e.g., "L 64;"
+    would appear as "L 64;" in the KIC files (which would have to
+    be altered later).  Similarly, layer names which are not found
+    in the layer table remain unchanged.
+
+!!SEEALSO
+ciftokic
+
+!!KEYWORD
+frgds
+!!TITLE
+frgds
+!!TEXT
+    Using this command, a GDSII (Stream) file can be expanded into
+    KIC files.  The file and symbol names are altered to be
+    compatible with DOS in DOS versions of KIC, and an alias file
+    "dos__str.als" is created in the current directory if it
+    doesn't exit, and is added to if it does.  This file
+    provides the mapping between the original and new symbol names,
+    and is only created if a name required alteration.  The user
+    is prompted for the name of the Stream file.  The converter
+    creates KIC files, one for each symbol found in the Stream
+    file.  Care should be taken to avoid overwriting existing
+    files during conversion, as there is no checking for name
+    collisions.  The layer mapping is taken from the technology
+    file.  If the datatype obtained from the dotkic file is -1, the
+    datatype given in the input is not comparison tested.  In this
+    case, only the layer number is significant. Otherwise, the
+    datatype must match the specified datatype for the layer.
+    The valid stream layer numbers and data types are 0-255.
+
+!!SEEALSO
+techfile
+strtokic
+
+!!KEYWORD
+go
+!!TITLE
+go
+!!TEXT
+    Actually generate the hardcopy plot.
+
+!!KEYWORD
+grid
+!!TITLE
+grid
+!!TEXT
+    Modify the grid.  If in the Attributes menu, the color and
+    pattern can be modified, in addition to the spacing.  Hit
+    ENTER to toggle the grid on and off.
+
+!!SEEALSO
+snap
+
+!!KEYWORD
+hcopy
+!!TITLE
+hcopy
+!!TEXT
+    This command brings up a submenu for generation of hard
+    copy plots.  At present, the HP Laserjet PCL format and
+    PostScript are supported.  To improve visibility of the
+    plots, the layer fill patterns are set separately and may
+    differ from those normally displayed.  These alternate
+    fill patterns, grid display, and layer visibility choices
+    are in effect only when the hcopy command is active.  The
+    fill command in the submenu works identically to the normal
+    fill command, however the alternate fill patterns are used.
+    The grid command allows modification of the grid style
+    displayed in the plot.  Layers can be made invisible
+    (or visible) only during plotting with the visib command.
+    These choices can be saved (in the technology file) with
+    the updat command in the attriubutes menu.  The prn command
+    allows a choice of output device driver or file names.
+    The resol command can provide different print resolutions.
+    Higher resolution gives better print quality but requires
+    more time to produce.  Also, higher resolution causes
+    the fill patterns to become finer, which may make layer
+    differentiation more difficult.  The hctype command is used
+    to determine the plot format, currently 'h' for HP PCL or
+    'p' for PostScript.  Ordinarily, the full cell is plotted,
+    notwithstanding what is displayed on the screen.  The
+    frame command allows a portion of the cell to be plotted.
+    The plot is actually generated with the go command.
+    Rotated/mirrored text is not supported in PCL.
+
+!!SUBTOPICS
+frame
+go
+hctyp
+prn
+resol
+!!SEEALSO
+fill
+visib
+techfile
+
+!!KEYWORD
+hctyp
+!!TITLE
+hctyp
+!!TEXT
+    Set the format of the hardcopy output.  Currently, this can
+    be either 'h' for HP LaserJet PCL, or 'p' for PostScript.
+
+!!KEYWORD
+helpprog
+!!TITLE
+help
+!!TEXT
+    This is a stand-alone version of the KIC help utility.
+    Invocation is
+
+    help [keyword]
+
+    where keyword is the name of an internal item.
+    Without an argument, entry is to the top level.  The help
+    database is stored in the startup directory as
+    "kic_help.txt".  This is a text file, which can be edited
+    with any text editor.  KIC doesn't care if this is in DOS
+    or UNIX text format. The file is a collection of records,
+    as below.  Each data item is keyed by one of the following
+    keywords, which must occupy a single line starting in the
+    first column: !!KEYWORD, !!TITLE, !!TEXT, !!SUBTOPICS, and
+    !!SEEALSO.
+
+    !!KEYWORD
+    word
+    !!TITLE
+    A Title for Word
+    !!TEXT
+    This is the text that describes the entry.  The next two
+    fields (!!SUBTOPICS and !!SEEALSO) are optional. They are
+    lists of other keywords.
+    !!SUBTOPICS
+    subword
+    subword2
+    !!SEEALSO
+    anotherword
+
+!!KEYWORD
+kbrd
+!!TITLE
+Keyboard Pointer
+!!TEXT
+    If a Microsoft compatible mouse or digitizing pad is not
+    available, the keyboard can be used as a pointer.  The
+    marker is moved with the arrow keys.  Holding down the
+    control key provides fine translation, and coarse trans-
+    lation is available by holding down the alt key, along
+    with the desired arrow key.  See the button entries for
+    the keyboard keys used to simulate the various button
+    presses.
+
+!!SEEALSO
+button1
+button2
+button3
+button4
+
+!!KEYWORD
+keyboard
+!!TITLE
+Keyboard Commands
+!!TEXT
+    Menu commands can be entered from the keyboard by typing
+    the prefix upper cased in the menu entries.  Escape, ^X,
+    and ^U clear the keyboard buffer.  In addition, there are
+    a few control character commands as listed below.  Input
+    is case insensitive.
+
+!!SUBTOPICS
+bang
+ctrla
+ctrle
+ctrlf
+ctrlg
+ctrll
+ctrln
+ctrlt
+ctrlv
+enter
+escape
+fkeys
+spacebar
+
+!!KEYWORD
+kictocif
+!!TITLE
+kictocif
+!!TEXT
+    Usage: kictocif [options] [root_kic_cell]
+
+    options (case insensitive):
+      -Ocifname   CIF file name to create.
+      -S          Convert symbolic layers only.
+      -D          Convert detail layers only.
+      -Pc         c = Program prefix (a Stanford, b NCA, h IGS,
+                  i Icarus, k KIC, q Squid, s SIF).
+      -Text       Use layers in tech.ext.
+      -Lmicprl    Microns per lambda (default 1.0).
+
+    Will prompt for root kic cell if not specified, hit
+    return for help.
+
+!!KEYWORD
+kictostr
+!!TITLE
+kictostr
+!!TEXT
+    Usage: kictostr [options] [root_kic_cell]
+
+    options (case insensitive):
+      -C          Convert only cells found in current directory.
+      -Zname      Stream library name (default "KICTOSTREAM").
+      -Ostrname   Stream file name to create.  (default is root
+                  kic cell name with .str extension)
+      -S          Convert symbolic layers only.
+      -D          Convert detail layers only.
+      -Xfilename  Use filename as layer table reference ("ltab")
+                  file, default is to use layers from the technology
+                  file (StreamData lines).
+      -Text       Use layers in tech.ext.
+      -N          Parse layer names for stream layers, KIC layers
+                  must be named "NNDD" (num datatype). Supersedes
+                  -X, -T.
+      -Lmicprl    Microns per lambda (default 1.0).
+      -Mupermic   Database units per micron (default 100.0).
+
+    Will prompt for kic cell name to convert if not supplied,
+    hit return for help.
+    If the datatype obtained from the technology or ltab file is
+    outside of 0-255, the written datatype is 0.  The valid stream
+    layer numbers and data types are 0-255.  In DOS versions, the
+    file "dos__str.als" is used to map DOS cell names to stream
+    names.  This file is created by the stream to KIC converters.
+
+!!KEYWORD
+label
+!!TITLE
+label
+!!TEXT
+    Create a text label.  The text will be rotated or mirrored
+    according to the current transform.
+
+!!SEEALSO
+rotate
+mirror
+
+!!KEYWORD
+labls
+!!TITLE
+labls
+!!TEXT
+    When on, labels will be displayed in the coarse viewport in
+    split screen mode.  Otherwise, they will be displayed only
+    in the fine viewport.
+
+!!KEYWORD
+last
+!!TITLE
+last
+!!TEXT
+    Display the last view, or show a selection menu of views
+    saved with the ^N command.
+
+!!SEEALSO
+ctrln
+
+!!KEYWORD
+layer
+!!TITLE
+layer
+!!TEXT
+    When on, the selections will be layer specific.  Otherwise,
+    any object pointed to or within the selection area will be
+    selected.  When on, only objects on the current layer will be
+    selected.  Instances are selected during a layer specific
+    point select if there is no other qualifying geometry.
+
+!!KEYWORD
+llref
+!!TITLE
+llref
+!!TEXT
+    When this switch is on, cells are placed such that the lower
+    left corner of the bounding box is used as the reference,
+    i.e., the cell is rotated or mirrored around this point
+    according to the current transform, and placed so this point
+    corresponds to where the user pointed.  Otherwise, the origin
+    of the subcell is used as the reference.
+
+!!KEYWORD
+logo
+!!TITLE
+logo
+!!TEXT
+    The logo command allows the creation of physical text subcells
+    for labelling, corporate identification, etc.  The text is
+    placed on the current layer in a cell which is named for the
+    first 8 characters in the string, with a .N extension if
+    necessary for uniqueness, with N being an integer.  After the
+    cell is created, it can be placed with a point operation.
+    The size of the text is controlled by the pixel size, which is
+    given in microns.  For the default font supplied, the character
+    height is about 50 times the pixel size.
+   
+!!KEYWORD
+mark
+!!TITLE
+mark
+!!TEXT
+    When on, instances will be marked (obsolete).
+
+!!KEYWORD
+mirror
+!!TITLE
+MX,MY
+!!TEXT
+    Add mirroring about X or Y to the current transform.  This
+    will affect moved or copied objects, and newly placed
+    instances.
+
+!!SEEALSO
+rotate
+
+!!KEYWORD
+move
+!!TITLE
+move
+!!TEXT
+    Move an object.  If objects are previously selected, the group
+    will be moved.  If no object has been selected, the user is
+    requested to point to an object to move.  Responding to the
+    prompts, the user points to a reference point, then to a
+    destination point.  The object is moved such that the
+    reference point falls on the destination point.  The orien-
+    tation is altered according to the current transformation.
+
+!!SEEALSO
+copy
+rotate
+mirror
+
+!!KEYWORD
+pan
+!!TITLE
+pan
+!!TEXT
+    When on, point to new locations for the center of view in the
+    coarse window, (or the window in full screen mode).
+
+!!KEYWORD
+peek
+!!TITLE
+peek
+!!TEXT
+    When on, instances will be expanded in the fine viewport
+    but not the coarse viewport in split screen mode.
+
+!!SEEALSO
+expnd
+
+!!KEYWORD
+place
+!!TITLE
+place
+!!TEXT
+    When this switch is on, a basic point operation will cause
+    an instance or array of the current master cell to be placed
+    in the cell currently being edited.  If the llref toggle is
+    on, the lower left corner of the subcell or array is used as
+    the reference, otherwise the subcell or  array origin is
+    used.  The rotation and mirroring are set by the current
+    transform buttons.  When place is turned on, the user is
+    given the opportunity to specify or change the current master
+    cell.
+
+!!SEEALSO
+array
+llref
+mirror
+rotate
+
+!!KEYWORD
+plusretc
+!!TITLE
++r, etc
+!!TEXT
+    The currently selected layer color is modified with these
+    buttons.  These are also used by the commands in the color
+    submenu to set colors of screen attributes.
+
+!!KEYWORD
+pointer
+!!TITLE
+Pointing Device
+!!TEXT
+    Under DOS, KIC can be set up to operate with a Microsoft
+    compatible mouse, a Summagraphics compatible digitizing pad,
+    or with a keyboard driven pointer.  The selection is made in
+    the file mfb.rc which is in the directory kic/startup.  If
+    the disk is other than drive C, the SRWDRV environment
+    variable designates the appropriate drive. See the comments
+    in mfb.rc for information on changing the pointing device.
+
+    Under UNIX, the mfb.rc file is not used, and the pointing
+    device is that in use on the X-windows server.
+
+!!SUBTOPICS
+button1
+button2
+button3
+button4
+kbrd
+
+!!KEYWORD
+polyg
+!!TITLE
+polyg
+!!TEXT
+    Create polygons.  Point at the last vertex twice, or to the
+    first vertex to complete the polygon.
+
+!!KEYWORD
+pop
+!!TITLE
+pop
+!!TEXT
+    Pop the editing context back to the parent cell.
+
+!!SEEALSO
+push
+
+!!KEYWORD
+prn
+!!TITLE
+prn
+!!TEXT
+    Set the name of the printer device or file for hardcopies.
+    In DOS, the name can be that of a port driver (prn, lpt1,
+    etc).  If not so recognized, the name will be taken as a
+    file to which the output is directed.  Under UNIX, if the
+    first three characters are "lpr", a process is opened and
+    the output is fed to the standard input of the process.
+    Otherwise, a file is opened for output.
+
+!!KEYWORD
+prpty
+!!TITLE
+prpty
+!!TEXT
+    Change to the Properties Menu.
+
+!!KEYWORD
+push
+!!TITLE
+push
+!!TEXT
+    Push the selected subcell for editing.  If no subcell has
+    been selected, the user is asked to point at one.  The
+    pushed-to cell is displayed in true orientation, with or
+    without the surrounding context shown as set with the
+    CNTXT button.
+
+!!SEEALSO
+pop
+cntxt
+
+!!KEYWORD
+quit
+!!TITLE
+quit
+!!TEXT
+    Exit KIC.  The user will be prompted for instructions if there
+    are cells which have not been saved.
+
+!!KEYWORD
+rdraw
+!!TITLE
+rdraw
+!!TEXT
+    Redisplay the screen.
+
+!!KEYWORD
+resol
+!!TITLE
+resol
+!!TEXT
+    The interface supports resolutions of 75, 100, 150, and
+    300 dpi.  The default is 150 dpi.  The resolution can be
+    changed with this command.
+
+!!KEYWORD
+rgb
+!!TITLE
+rgb
+!!TEXT
+    Display the RGB value of the currently selected layer.
+
+!!SEEALSO
+plusretc
+
+!!KEYWORD
+rmove
+!!TITLE
+rmove
+!!TEXT
+    Remove a layer from the layer menu.
+
+!!SEEALSO
+adlyr
+
+!!KEYWORD
+rmprp
+!!TITLE
+rmprp
+!!TEXT
+    Remove a property from the selected objects.
+
+!!KEYWORD
+rotate
+!!TITLE
+0 90 180 270
+!!TEXT
+    During a move, copy, or instance placement, a transformation
+    is performed as specified by the current rotation setting.
+    The rotation setting also governs the orientation of the break
+    command.
+
+!!SEEALSO
+mirror
+break
+
+!!KEYWORD
+save
+!!TITLE
+save
+!!TEXT
+    Save the cell currently being edited.  The user is given the
+    option of saving the cell under a new name.  If a new name is
+    given, the user is prompted whether to change references in
+    the parent cell (if it exists) to the new name.
+
+!!KEYWORD
+scale
+!!TITLE
+scale
+!!TEXT
+    Usage:  scale [-a numer] [-b denom] [-t ext] [root_kic_file]
+
+    options:
+      -a numer    Numerator of scale factor, positive
+                  integer >= 1 (default 1).
+      -b denom    Denominator of scale factor, positive
+                  integer >= 1 (default 1).
+      -t ext      Use tech.ext for layer definitions.
+
+    Will prompt for root kic file if not given.  The program
+    multiplies all coordinates in the root cell and subcells by
+    numer/denom, and writes over the original cells. If you want
+    to preserve the original cells, they have to be copied to
+    another name or directory. BE CAREFUL, EXPERIMENTING WITH THIS
+    PROGRAM CAN CLOBBER YOUR WORK.
+
+!!KEYWORD
+scrn
+!!TITLE
+Screen Partitioning
+!!TEXT
+    KIC has two viewing modes, full screen and split screen, the
+    default being full screen.  The mode can be changed with the
+    zoom command.  In full screen mode, one view occupies the
+    entire viewing area.  In split screen mode, there are two
+    viewports, a coarse view and a fine view.  The fine view is
+    a magnification of a portion of the coarse view.  The ^N
+    command saves the view, and the Last command can be invoked
+    inside of most commands, so that the view can be altered 
+    during geometry creation.  This facilitates wiring large
+    cells.  The positioning of the fine viewport within the
+    coarse viewport can be changed with the pointing device
+    using buttons 2 and 3.
+
+!!SEEALSO
+ctrln
+last
+zoom
+button2
+button3
+
+!!KEYWORD
+selec
+!!TITLE
+selec
+!!TEXT
+    When on, objects pointed to will be selected, as indicated
+    by highlighting.  Several commands operate on selected
+    objects.  A message on the parameter line indicates the
+    number of objects currently selected.
+
+!!SEEALSO
+layer
+area
+
+!!KEYWORD
+show
+!!TITLE
+show
+!!TEXT
+    Show the properties of the selected objects.
+
+!!KEYWORD
+sides
+!!TITLE
+sides
+!!TEXT
+    Set the number of sides assumed for rounded geometries.
+
+!!KEYWORD
+snap
+!!TITLE
+snap
+!!TEXT
+    Set the spacing of the snap lines.  Setting to 1 will
+    correspond to grid lines, setting to 2 will snap on and
+    midway between grid lines, etc.
+
+!!SEEALSO
+grid
+
+!!KEYWORD
+spacebar
+!!TITLE
+spacebar
+!!TEXT
+    Pressing the space bar updates the screen parameter information
+    in the same way as a point operation, however no actual action
+    is taken.  This is usful for measuring distances.  This is the
+    same effect as mouse button 4, which exists on some pointing
+    devices.  ^W has a similar effect, however the user is asked
+    to point first.
+
+!!SEEALSO
+button4
+
+!!KEYWORD
+strch
+!!TITLE
+strch
+!!TEXT
+    The stretch command operates on polygons, wires, and
+    rectangles.  It enables moving of polygon and wire vertices,
+    and rectangle corners.  The movement is constrained by the
+    current setting of the TBRL button.
+
+    If no geometry has been selected, the user is asked to point
+    to an object to stretch.  Once an object is selected, the
+    user is then prompted to point at a vertex, and the closest
+    one to where the user points is active.  The user then points
+    to the new location, and the vertex is then moved.  This move
+    is constrained by the TBRL setting.  If the setting is "TBRL",
+    there is no constraint.  If the setting is "TB", then only the
+    Y part of the translation is performed, and likewise if the
+    setting is "RL" only the X translation occurs.
+
+    If there are several objects selected, then the vertex closest
+    to where the user points is taken as the reference vertex.
+    This vertex is translated to the new location.  In each of the
+    other objects, the same transformation is applied to the
+    vertex closest to the reference vertex.  Thus, a group of
+    wires, for example, can all be extended at once.
+
+!!SEEALSO
+tbrl
+
+!!KEYWORD
+strmtext
+!!TITLE
+strmtext
+!!TEXT
+    Usage:  strmtotext [-id] [-n2345678] [ streamfile [textfile] ]
+
+    options:
+      -id         Prints the version of the program and copyright
+                  information.
+      -n          Indicates a non-standard Stream file is to be
+                  read, that is, one structure beginning with
+                  BGBSTR and ending with ENDSTR.
+      1-8         Indicate the number of Stream records per line
+                  in the output text.  (Default is one per line).
+      streamfile  A Calma Stream file (3.0) input to this program.
+                  (Standard input default).
+      textfile    The name of the file to receive the program's
+                  output.  (Standard output default).
+
+!!KEYWORD
+strtokic
+!!TITLE
+strtokic
+!!TEXT
+    Usage: strtokic [options] [streamfile]
+
+    options (case insensitive):
+      -P          Convert manhattan polygons to boxes, four-sided
+                  manhattan polygons are always converted.
+      -E          Print errors in file "strtokic.err",
+                  default is to screen (stderr).
+      -Csname     sname = Root structure name to convert.
+                  Default, convert all structures in file.
+      -Rfilename  filename = Name of root cell (default "Root").
+                  The root cell contains global library informa-
+                  tion, and can usually be ignored.
+      -Xfilename  Use filename as layer table reference ("ltab")
+                  file, default is to use layers from the
+                  technology file (StreamData lines).
+      -Text       Use layers from tech.ext.
+      -N          Use stream layer numbers for layer names. Will
+                  reference layers as "L NNDD" where N is the layer
+                  number and D is the data type, both as two char-
+                  acter fields. Supersedes -X, -T.
+      -Lmicprl    Microns per lambda (default 1.0).
+
+    Will prompt for stream file name to convert if not supplied,
+    hit return for help.
+    Search path for technology file: . , .../kic/startup.
+    If the datatype obtained from the technology or ltab file is -1,
+    the datatype given in the input is not comparison tested.  In
+    this case, only the layer number is significant.  Otherwise,
+    the datatype must match the specified datatype for the layer.
+    The valid stream layer numbers and data types are 0-255.  In
+    DOS versions, cell names are mapped to DOS compatible file
+    names.  This mapping as added to the file "dos__str.als",
+    which is created if it doesn't exist.
+
+!!KEYWORD
+tbrl
+!!TITLE
+tbrl
+!!TEXT
+    This is a three way toggle used by the strch command.  When on,
+    i.e. reading "tb" or "rl", the stretch operation is constrained
+    to the Y or X direction, respectively.  This is useful when
+    only the length or width of an object is to be changed, and
+    the magnification is large.
+
+!!SEEALSO
+strch
+
+!!KEYWORD
+techfile
+!!TITLE
+Technology File
+!!TEXT
+    The technology file tells KIC all it knows about the layers
+    and display attributes.  The name of the file is "kic_tech", 
+    and an extension .xxx can be added to the name, so that if KIC
+    is started with the -t xxx option, the technology file with
+    the extension will be used.  For example, kic -t trw would try
+    to read kic_tech.trw.
+    
+    If no technology file is found in the current directory, a
+    system-wide directory is searched.  This location can be set
+    with the KIC_LIB_DIR environment variable.  The default
+    technology file has been provided by your system administrator.
+    A personalized version can be generated with the updat
+    command.
+
+    The technology file consists of a path specification, followed
+    by several layer specifications, followed by the display
+    attribute specifiers.
+
+    The path consists of the characters "Path?" followed by space,
+    followed by a space separated list of directories (format
+    appropriate for the operating system) enclosed in parens.
+
+    Aside from the path, the file is read without case
+    sensitivity.
+
+    The layer specification consists of a list of keywords in the
+    order and format illustrated in the example below.  The layer
+    name consists of four alphanumeric characters or fewer.  
+    The color RGB is three numbers (RGB) each from 0-255.
+    Following "Filled?" one can have "y" (solid fill), "n" (empty
+    fill, thick outline), or eight bytes of hex code defining a
+    fill pattern, followed by an optional "y" or "outline", which
+    if present indicates that the pattern is outlined.  Examples:
+
+      filled? y
+      filled? cc aa cc aa cc aa cc aa outline
+
+    The syntax is identical for "AltFilled", which sets the pattern
+    for hardcopies.
+    The number following "MinDimensions?" is the minimum feature
+    size in microns.  A second number is the default wire width,
+    which defaults to the minimum dimension.
+    If the "Invisible" keyword is given, the layer is invisible by
+    default.  Similarly, "AltInvisible" will hide the layer in
+    hardcopies.
+    If the "Symbolic?" keyword is followed by "y", the
+    geometry is shown even when the cell is not expanded.  Normal
+    layers should follow "Symbolic?" with "n".
+    The two numbers following "StreamData" are the Stream layer
+    number and data type used when converting to GDSII.
+    The keywords "Tran", "Resis", and "Cap" signify electrial
+    parameter specifications, only one of which can be used per
+    layer.
+
+    The display mode keywords are all optional.  GridSpacing is in 
+    microns.  The following keywords indicate an attribute color:
+      MenuPrompt, MenuText, MenuHighlighting, MenuSelect,
+      MoreText, CoarseGrid, FineGrid, InstanceBox, InstanceName,
+      InstanceSize.
+    The last three set the colors used in unexpanded instances.
+    Each is followed by either one or three integers.  If KIC is
+    running on a system with less than 32 possible colors, the
+    attribute colors and layer colors are merged, such that the
+    attributes are mapped to specific layers for color reference.
+    In this mode, KIC will generate a technology file with a single
+    integer following the above parameters, which is the layer
+    number for color reference.  Otherwise, three numbers are
+    produced, which are the RGB values in the range 0-255.
+
+    In addition, Highlighting and Background are followed by RGB
+    values in either case.
+
+    In merged mode, reading an RGB technology file will produce KIC
+    internal layer references based on the best color match.  In
+    non-merged mode, reading in a single integer technology file
+    will load the independent color buffer with the corresponding
+    layer's color.
+
+    RoundFlashSides is followed by the number of segments used to
+    approximate rounded geometries.  Highlighting and Background
+    are followed by RGB values for the colors.  If ShowGrid is
+    present the grid wil be shown, otherwise it is invisible by
+    default.  If GridOnBottom is given, the grid will be below
+    geometries, otherwise it is shown above.  If DisplayAllText
+    is given, labels will be shown in the coarse viewport in
+    split screen mode, otherwise labels are displayed only in 
+    the fine viewport.  Similarly, if LabelAllInstances is
+    present, instances will be labeled in the coarse viewport
+    in split screen mode.  AltShowGrid controls grid display in
+    hardcopies.  AltDevice gives the printer device name for hard
+    copies, AltResolution gives the resolution, and AltFormat
+    gives the format code for the plot data.
+
+    The following is an example.  Text enclosed in square brackets
+    is optional.  Other text is required. 
+
+      Path? (. \library\stuff mydir\layouts)
+  
+      LayerName? gndc
+      [Color'sName? green]
+      RGB? 0 255 0
+      [Symbolic? n]
+      [Filled? y]                             default n
+      [AltFilled cc aa cc aa cc aa cc aa y]   default n
+      [Invisible]
+      [AltInvisible]
+      [Blink]
+      [MinDimensions? 2]                      default 0
+      [StreamData 21 0]
+      [tran ...]
+      [resis ...]
+      [cap ...]
+
+      ...
+                                   defaults
+    [ Gridspacing 2.5                 2.0
+      
+      Highlighting 255 255 255        255 255 255
+      Background 0 0 100              0 0 0
+
+
+    merged format:
+      MenuPrompt 2                    closest match
+      MenuText 3                      to colors as
+      MenuHighlighting 4              listed below
+      MenuSelect 8
+      MoreText   9
+      CoarseGrid 6
+      FineGrid 7
+      InstanceBox  1
+      InstanceName 1
+      InstanceSize 1
+
+    OR
+    independent format:
+      MenuPrompt 100 150 0            255 235 110  
+      MenuText 0 250 0                120 240 0
+      MenuHighlighting 250 0 0        110 160 255
+      MenuSelect 125 250 125          180 250 150
+      MoreText 170 210 200            170 210 200
+      CoarseGrid 90 150 0             150 170 255
+      FineGrid 140 150 80             60  20 200
+      InstanceBox  250 250 250        150 225 195
+      InstanceName 250 0 0            180 60 0
+      InstanceSize 0 0 250            220 85 180
+
+
+      RoundFlashSides 32              20
+      ShowGrid                        0
+      AltShowGrid                     0
+      AltDevice    lpt2               prn
+      AltResolution 100               150
+      GridOnBottom                    0
+      DisplayAllText                  0
+      LabelAllInstances ]             0
+
+
+    The electrical parameters have the following formats:
+
+      resis[tance] <ohm_per_square>
+
+      cap[acitance] <units_per_square_micron>
+
+      tran[smission] <line_thick> <line_penet> <grnd_thick> 
+        <grnd_penet>  <diel_thick> <diel_epsilon_rel>
+
+    Each of the <...> is a floating point number.  Tran parameters
+    are in microns.  A superconducting model is employed.
+
+!!SEEALSO
+updat
+
+!!KEYWORD
+tocif
+!!TITLE
+tocif
+!!TEXT
+    With this command, the current editing cell and its descednents
+    are written to a CIF file.  The user is prompted for the name
+    of the file for CIF output.  The resulting CIF file can be used
+    to port designs created in KIC to other systems.
+
+!!SEEALSO
+kictocif
+
+!!KEYWORD
+togds
+!!TITLE
+togds
+!!TEXT
+    This command creates a GDSII (Stream) file of the current
+    editing cell and its descendents.  The name of the file for
+    the GDSII output is requested from the user.  The resulting
+    file can be used to export designs created with KIC to other
+    systems, as the GDSII format is an industry standard.  In
+    DOS versions, if the file "dos__str.als" is found in the
+    current directory, the DOS cell names are mapped to Stream
+    cell names through the table in this file.  This file is
+    ordinarily created by the Stream to KIC converters.  The
+    layer mapping is taken from the technology file.  If the
+    datatype obtained from the technology or ltab file is
+    outside of 0-255, the written datatype is 0.  The valid stream
+    layer numbers and data types are 0-255.
+
+!!SEEALSO
+techfile
+kictostr
+
+!!KEYWORD
+undo
+!!TITLE
+undo
+!!TEXT
+    The undo command reverses the last operation of most commands
+    which create, delete, or modify geometry.
+
+!!KEYWORD
+updat
+!!TITLE
+updat
+!!TEXT
+    Write an updated technology file in the current directory.
+    This file provides setup information to KIC.
+
+!!SEEALSO
+techfile
+
+!!KEYWORD
+utilities
+!!TITLE
+Utilities
+!!TEXT
+    There are several utility programs supplied with KIC.
+    These are:
+      ciftokic     CIF to KIC converter
+      kictocif     KIC to CIF converter
+      strtokic     Stream to KIC converter
+      kictostr     KIC to stream converter
+      strmtext     Stream to text program
+      scale        Cell scaling program
+      help         help database editor/browser
+
+    Stream format is also referred to as Calma GDSII.
+
+!!SUBTOPICS
+ciftokic
+helpprog
+kictocif
+kictostr
+scale
+strmtext
+strtokic
+
+!!KEYWORD
+view
+!!TITLE
+view
+!!TEXT
+    Display a centered full view of the current cell.
+
+!!KEYWORD
+visib
+!!TITLE
+visib
+!!TEXT
+    Set the visibility of the layers.
+
+!!KEYWORD
+width
+!!TITLE
+width
+!!TEXT
+    This function has two modes.  If there are wires selected,
+    on the current layer with the layer button active, or any
+    wires with the layer button inactive, KIC prompts for a
+    new wire width for the selected wires.  If the layer button
+    is active, only wires on the current layer have their
+    widths changed, otherwise selected wires from all layers
+    have their widths altered.  No checking is performed for
+    minimum width violations in this mode.  The other mode sets
+    the default wire width for the current layer, and this is
+    constrained to be greater or equal to the minimum width.
+    This mode is entered if there are no applicable wires
+    selected when the width button is chosen.  Wires
+    subsequently created on the present layer will have the new
+    width.
+
+!!SEEALSO
+wires
+layer
+
+!!KEYWORD
+windo
+!!TITLE
+windo
+!!TEXT
+    Point to the diagonal corners of a new window.  In split screen
+    mode, this command operates with the coarse window.
+
+!!SEEALSO
+ctrlg
+button3
+
+!!KEYWORD
+wires
+!!TITLE
+wires
+!!TEXT
+    Create wires.  Point to the same location twice to end a wire.
+
+!!KEYWORD
+xor
+!!TITLE
+xor
+!!TEXT
+    This mode facilitates inverting the polarity of layers.  The
+    operation is similar to the boxes command, however all prev-
+    iously existing boxes on the same layer which overlap the
+    created box become holes in the new box.  Structures other
+    than boxes are covered.  No checking is done for minimum
+    feature size of the newly created geometry.
+
+!!SEEALSO
+boxes
+
+!!KEYWORD
+xwindows
+!!TITLE
+X Windows
+!!TEXT
+    This version of KIC supports X Windows.  However, transformed
+    text display is not available under X windows.  The X version
+    provides selectable fonts and cursors.
+
+!!SEEALSO
+cursr
+font
+
+!!KEYWORD
+zoom
+!!TITLE
+zoom
+!!TEXT
+    Enter a new width for the window, or the coarse window if in 
+    split screen mode, or hit Enter to toggle between full and
+    split screen modes.
+

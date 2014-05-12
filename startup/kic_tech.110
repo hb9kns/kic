@@ -1,0 +1,138 @@
+Path? ( .  ) 
+
+LayerName? TEXT
+RGB? 240 255 255
+Symbolic? n
+Filled? y
+AltFilled? y
+MinDimensions 0
+StreamData? 15 0
+
+LayerName? GNDE
+RGB? 110 190 125
+Symbolic? n
+Filled? 11 22 44 88 11 22 44 88 outline
+AltFilled? 11 22 44 88 11 22 44 88 outline
+MinDimensions 2.5
+StreamData? 1 0
+
+LayerName? GNDC
+RGB? 255 250 255
+Symbolic? n
+Filled? 00 00 14 00 00 00 14 00 outline
+AltFilled? 00 00 14 00 00 00 14 00 outline
+MinDimensions 2.5
+StreamData? 2 0
+
+LayerName? RESH
+RGB? 180 160 127
+Symbolic? n
+Filled? 11 0e 02 62 91 28 48 90 outline
+AltFilled? 11 0e 02 62 91 28 48 90 outline
+MinDimensions 3
+StreamData? 3 0
+
+LayerName? RESI
+RGB? 230 40 0
+Symbolic? n
+Filled? 66 00 00 66 66 00 00 66 outline
+AltFilled? 66 00 00 66 66 00 00 66 outline
+MinDimensions 3
+StreamData? 4 0
+
+LayerName? SIOG
+RGB? 0 0 255
+Symbolic? n
+Filled? 08 08 08 ff 08 08 08 08 outline
+AltFilled? 08 08 08 ff 08 08 08 08 outline
+MinDimensions 1.5
+StreamData? 5 0
+
+LayerName? JUNC
+RGB? 250 250 0
+Symbolic? n
+Filled? 89 18 24 c2 43 24 18 91 outline
+AltFilled? 89 18 24 c2 43 24 18 91 outline
+MinDimensions 2.5
+StreamData? 6 0
+
+LayerName? TRIW
+RGB? 0 255 0
+Symbolic? n
+Filled? 01 02 04 08 10 20 40 80 outline
+AltFilled? 01 02 04 08 10 20 40 80 outline
+MinDimensions 2
+StreamData? 7 0
+
+LayerName? SIOA
+RGB? 255 170 130
+Symbolic? n
+Filled? y
+AltFilled? y
+MinDimensions 1.5
+StreamData? 8 0
+
+LayerName? WIRA
+RGB? 200 250 255
+Symbolic? n
+Filled? 80 40 20 10 08 04 02 01 outline
+AltFilled? 80 40 20 10 08 04 02 01 outline
+MinDimensions 2
+StreamData? 9 0
+
+LayerName? SIOB
+RGB? 70 200 200
+Symbolic? n
+Filled? 81 42 24 99 42 24 42 81
+AltFilled? 81 42 24 99 42 24 42 81 outline
+MinDimensions 2
+StreamData? 10 0
+
+LayerName? WIRB
+RGB? 190 90 197
+Symbolic? n
+Filled? 81 42 24 18 18 24 42 81 outline
+AltFilled? 81 42 24 18 18 24 42 81 outline
+MinDimensions 2
+StreamData? 11 0
+
+LayerName? GOLD
+RGB? 255 170 227
+Symbolic? n
+Filled? 00 00 42 00 24 00 42 00 outline
+AltFilled? 00 00 42 00 24 00 42 00 outline
+MinDimensions 4
+StreamData? 12 0
+
+LayerName? NOSI
+RGB? 220 80 187
+Symbolic? y
+Filled? n
+AltFilled? n
+AltInvisible
+MinDimensions 0
+StreamData? 13 0
+
+Highlighting 215 220 230
+Background 0 0 0
+MenuText 200 250 255
+MenuSelect 70 200 200
+MenuHighlighting 230 40 0
+MenuPrompt 240 255 255
+MoreText 200 250 255
+FineGrid 230 40 0
+CoarseGrid 0 0 255
+InstanceBox 200 250 255
+InstanceName 190 90 197
+InstanceSize 230 40 0
+GridSpacing 1
+GridStyle 204
+RoundFlashSides 40
+AltDevice prn
+AltResolution 150
+AltFormat p
+Snapping 2
+FineViewportOnSide
+FontName 
+BeepVolume 0
+

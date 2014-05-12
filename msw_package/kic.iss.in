@@ -1,0 +1,52 @@
+
+[Setup]
+
+AppName=kic
+AppVerName=kic-VERSION
+AppVersion=VERSION
+AppPublisher=Whiteley Research Inc.
+AppPublisherURL=http://www.wrcad.com
+
+OutputBaseFilename=kic-VERSION-setup
+
+Compression=lzma
+
+DefaultDirName=c:\usr\local
+DirExistsWarning=no
+
+PrivilegesRequired=admin
+
+UninstallFilesDir={app}\lib\kic\uninstall
+UninstallDisplayIcon="{app}\bin\kic.exe"
+
+[Dirs]
+
+Name: "{app}\lib\kic"
+
+[Files]
+
+Source: "data\bin\*.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
+
+Source: "data\lib\kic\README"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\kic_help.txt"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\kic_tech"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\kic_tech.110"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\kic_tech.220"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\kic_tech.300"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\kic_tech.hyp"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\kic_tech.scm"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\logofont.kic"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\ltab"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\ltab.hyp"; DestDir: "{app}\lib\kic"
+Source: "data\lib\kic\ltab.trw"; DestDir: "{app}\lib\kic"
+
+[code]
+
+function InitializeSetup(): Boolean;
+begin
+  Result := True;
+  if RegKeyExists(HKLM, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\kic') then begin
+    MsgBox('There is an installed kic present from the old' #13 'install tool.  You must uninstall kic before proceeding.', mbInformation, MB_OK);
+    Result := False;
+  end;
+end;

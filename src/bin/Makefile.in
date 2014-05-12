@@ -1,0 +1,163 @@
+#######################################################################
+# src/bin/Makefile.in
+#######################################################################
+# $Id$
+#######################################################################
+
+VERSION = @VERSION@
+DATE = @DATE@
+
+prefix = @prefix@
+CC = @CC@
+CFLAGS = @CFLAGS@
+LIBS = @LIBS@
+DEPEND_PROG = @DEPEND_PROG@
+RANLIB = @RANLIB@
+INSTALL = @INSTALL@
+INSTALL_USER = @INSTALL_USER@
+FILTER = @FILTER@
+NTSUFFIX = @NTSUFFIX@
+RESOURCE = @RESOURCE@
+MFB = @MFB@
+
+KIC_LIB_DIR = $(prefix)/lib/kic
+KIC_EXEC_DIR = $(prefix)/bin
+
+####### Executable targets ############################################
+
+INCLUDE = -I../include
+TARGETS = kic kichelp kictocif ciftokic kictostr strtokic strmtext kicscale
+
+all:  $(TARGETS:.exe=)
+
+kic: kicmain.o global.o $(RESOURCE) ../kic.a ../cd.a ../convert.a ../help.a \
+        ../ginterf.a $(MFB)
+	$(CC) -o kic kicmain.o global.o $(RESOURCE) \
+            ../kic.a ../cd.a ../convert.a ../help.a ../ginterf.a \
+            $(MFB) $(LIBS)
+
+kichelp: helpmain.o global.o ../help.a $(MFB) ../cd.a
+	$(CC) $(CC_OPT) -o kichelp helpmain.o global.o ../help.a $(MFB) \
+            ../cd.a $(LIBS)
+
+cif: ciftokic kictocif
+kictocif: kictocif.o global.o ../kic.a ../cd.a
+	$(CC) -o kictocif kictocif.o global.o ../kic.a ../cd.a -lm
+
+ciftokic: ciftokic.o global.o ../cd.a
+	$(CC) -o ciftokic ciftokic.o global.o ../cd.a -lm
+
+stream: kictostr strtokic strmtext
+kictostr: kictostr.o global.o ../kic.a ../cd.a
+	$(CC) -o kictostr kictostr.o global.o ../kic.a ../cd.a -lm
+
+strtokic: strtokic.o global.o ../cd.a
+	$(CC) -o strtokic strtokic.o global.o ../cd.a -lm
+
+strmtext: strmtext.o
+	$(CC) -o strmtext strmtext.o -lm
+
+kicscale: kicscale.o global.o ../kic.a ../cd.a
+	$(CC) -o kicscale kicscale.o global.o ../kic.a ../cd.a -lm
+
+####### Object file targets ###########################################
+
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDE) -c $*.c
+
+global.o:
+	$(CC) $(CFLAGS) -DKIC_LIB_DIR=\"$(KIC_LIB_DIR)\" \
+ -DVERSION_STR="\"$(VERSION)\"" $(INCLUDE) -c $*.c
+
+kicrc.o: kic.rc
+	windres kic.rc kicrc.o
+
+####### Recursively generate libraries ################################
+
+LIBRARIES = ../cd.a ../convert.a ../ginterf.a ../help.a ../kic.a $(MFB)
+
+$(LIBRARIES)::
+	cd $(@:.a=); $(MAKE)
+
+####### Dependencies ##################################################
+
+CFILES = ciftokic.c helpmain.c kictocif.c kicscale.c strtokic.c global.c \
+        kicmain.c kictostr.c strmtext.c
+
+depend::
+	@echo depending in src/bin
+	@if [ x$(DEPEND_DONE) = x ]; then \
+	    echo DEPEND_DONE = 1 >> Makefile; \
+	    $(DEPEND_PROG) $(INCLUDE) $(CFILES) $(FILTER) >> Makefile; \
+	fi
+	-@cd ../cd; $(MAKE) depend
+	-@cd ../convert; $(MAKE) depend
+	-@cd ../ginterf; $(MAKE) depend
+	-@cd ../help; $(MAKE) depend
+	-@cd ../kic; $(MAKE) depend
+	-@if [ x$(MFB) != "x" ]; then \
+	    cd ../xmfb; $(MAKE) depend; \
+	fi
+
+####### Clean up ######################################################
+
+clean:
+	-cd ../cd; $(MAKE) clean
+	-cd ../convert; $(MAKE) clean
+	-cd ../ginterf; $(MAKE) clean
+	-cd ../help; $(MAKE) clean
+	-cd ../kic; $(MAKE) clean
+	-@if [ x$(MFB) != "x" ]; then \
+	    cd ../xmfb; $(MAKE) clean; \
+	fi
+	-rm *.o kic$(NTSUFFIX) ciftokic$(NTSUFFIX) kictocif$(NTSUFFIX) \
+  strtokic$(NTSUFFIX) kictostr$(NTSUFFIX) strmtext$(NTSUFFIX) \
+  kicscale$(NTSUFFIX) kichelp$(NTSUFFIX)
+
+distclean::
+	-cd ../cd; $(MAKE) distclean
+	-cd ../convert; $(MAKE) distclean
+	-cd ../ginterf; $(MAKE) distclean
+	-cd ../help; $(MAKE) distclean
+	-cd ../kic; $(MAKE) distclean
+	-@if [ x$(MFB) != "x" ]; then \
+	    cd ../xmfb; $(MAKE) distclean; \
+	fi
+	-rm *.o kic$(NTSUFFIX) ciftokic$(NTSUFFIX) kictocif$(NTSUFFIX) \
+  strtokic$(NTSUFFIX) kictostr$(NTSUFFIX) strmtext$(NTSUFFIX) \
+  kicscale$(NTSUFFIX) kichelp$(NTSUFFIX) Makefile
+
+####### Install #######################################################
+
+INSTALL_BIN = $(INSTALL) -sc -m 0755 $(INSTALL_USER)
+INSTALL_LIB = $(INSTALL) -c -m 0644 $(INSTALL_USER)
+
+install: $(TARGETS) $(KIC_EXEC_DIR) $(KIC_LIB_DIR)
+$(KIC_EXEC_DIR)::
+	@../../util/mkdirpth $@
+	@for aa in $(TARGETS); \
+	do \
+	    if [ -x $$aa$(NTSUFFIX) ]; then \
+	        echo installing $$aa in $(prefix)/bin; \
+	        $(INSTALL_BIN) $$aa$(NTSUFFIX) $(prefix)/bin; \
+	    else \
+	        echo Warning: executable $$aa$(NTSUFFIX) not found.; \
+	    fi \
+	done
+
+$(KIC_LIB_DIR)::
+	@../../util/mkdirpth $@
+	$(INSTALL_LIB) ../../startup/* $@
+
+uninstall::
+	-for aa in $(TARGETS); \
+	do \
+	    if [ -x $(KIC_EXEC_DIR)/$$aa$(NTSUFFIX) ]; then \
+	        rm -f $(KIC_EXEC_DIR)/$$aa$(NTSUFFIX); \
+	    fi \
+	done
+	-if [ -d $(KIC_LIB_DIR) ]; then \
+	    rm -rf $(KIC_LIB_DIR); \
+	fi
+
+#######################################################################
