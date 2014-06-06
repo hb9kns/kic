@@ -5,7 +5,7 @@ dnl $Id$
 
 dnl *** Initialize
 AC_INIT(src/bin/kicmain.c)
-VERSION="2.4b"
+VERSION="2.4c"
 DATE=`/bin/date`
 AC_SUBST(prefix)
 AC_SUBST(VERSION)
