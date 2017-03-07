@@ -1,0 +1,41 @@
+#!/bin/sh
+refpre='^9 *'
+refchars='0-9A-Z_a-z'
+reflist=treetmpf-$$
+:>$reflist
+fini() { rm -f $reflist; }
+msg() { echo "[$*]" >&2; }
+if [ "$1" = "" ] ; then
+cat <<EOH
+usage: $0 <root file>
+ will search in <root file>, which must be a KIC file,
+ for all nested references to other files and write them to stdout.
+ during the search process, found references are also displayed on stderr.
+ references are defined as lines beginning with the pattern /$refpre/,
+ followed by a word of characters [$refchars]; the script then continues
+ the search in files named as these words.
+(2009 Yargo Bonetti)
+EOH
+exit 0
+fi
+refs() {
+ grep "$refpre" "$1" | sed -e "s/$refpre\([$refchars]*\).*/\1/" | {
+  while read ref dummy
+  do
+   if ! grep "$ref" $reflist >/dev/null 2>&1 ; then 
+    if [ -r "$ref" ] ; then
+     echo "$ref" >>$reflist
+     msg "new reference $ref in $1"
+     refs "$ref"
+    else msg "! $ref not readable, referred in $1"
+     echo "# $ref" >>$reflist
+    fi
+   fi
+  done
+ }
+}
+echo "$1" >$reflist
+msg "starting with $1"
+refs "$1"
+cat $reflist
+fini
