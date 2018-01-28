@@ -22,7 +22,7 @@ refs() {
  grep "$refpre" "$1" | sed -e "s/$refpre\([$refchars]*\).*/\1/" | {
   while read ref dummy
   do
-   if ! grep "$ref" $reflist >/dev/null 2>&1 ; then 
+   if ! grep "$ref" $reflist >/dev/null 2>&1 ; then
     if [ -r "$ref" ] ; then
      echo "$ref" >>$reflist
      msg "new reference $ref in $1"
