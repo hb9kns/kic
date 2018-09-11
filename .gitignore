@@ -1,0 +1,5 @@
+*.[oa]
+config.log
+config.status
+src/bin/
+src/*/Makefile
