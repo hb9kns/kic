@@ -1778,7 +1778,7 @@ char *dosname;
     struct aliastab *wl;
 
     for (i = 0,wl = aliasbase; wl; wl = wl->next) {
-        if (!stricmp(dosname,wl->dosname))
+        if (!strcasecmp(dosname,wl->dosname))
             return (wl->strname);
     }
     return (dosname);

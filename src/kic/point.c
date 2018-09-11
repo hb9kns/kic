@@ -339,6 +339,7 @@ skip:
 
         case CTRL_L:
             ShowPrompt("Layer #?");
+            Layer = 1;
             TypeIn = FBEdit(NULL);
             if (TypeIn != NULL)
                 sscanf(TypeIn,"%d",&Layer);

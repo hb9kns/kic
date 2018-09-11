@@ -181,10 +181,10 @@ Parameters.kpHardcopyResolution);
 
 #ifdef MSDOS
     Int1 = -1;
-    if      (!stricmp(outname,"prn"))  Int1 = 0;
-    else if (!stricmp(outname,"lpt1")) Int1 = 0;
-    else if (!stricmp(outname,"lpt2")) Int1 = 1;
-    else if (!stricmp(outname,"lpt3")) Int1 = 2;
+    if      (!strcasecmp(outname,"prn"))  Int1 = 0;
+    else if (!strcasecmp(outname,"lpt1")) Int1 = 0;
+    else if (!strcasecmp(outname,"lpt2")) Int1 = 1;
+    else if (!strcasecmp(outname,"lpt3")) Int1 = 2;
 
     if (Int1 >= 0) {
         while (PrinterPortStatus(Int1)) {

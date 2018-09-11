@@ -5,7 +5,7 @@
  *************************************************************************/
 
 #ifdef __STDC__
-extern void fatal_error(char*);
+extern void fatal_error(const char*);
 #else
 extern void fatal_error();
 #endif
@@ -544,13 +544,6 @@ extern void SQRestore();
 extern void SQDesel();
 extern void SQShow();
 extern int *InPath();
-#endif
-
-/* sline.c */
-#ifdef __STDC__
-extern void sline();
-#else
-extern void sline();
 #endif
 
 /* techfile.c */

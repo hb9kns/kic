@@ -222,7 +222,7 @@ moreprompt()
             if (cp_out == stdout)
                 cprint(4,xx);
             else {
-                (void) fprintf(cp_out,xx);
+                (void) fprintf(cp_out,"%s",xx);
                 (void) fflush(cp_out);
             }
 #ifdef MSDOS
@@ -242,7 +242,7 @@ moreprompt()
                     cprint(attr," \n"); /* keeps the cursor the attr color */
                 }
                 else
-                    (void) fprintf(cp_out,menu);
+                    (void) fprintf(cp_out,"%s",menu);
                 continue;
             }
             break;
@@ -269,30 +269,6 @@ unsigned x;
     memset(c,0,x);
     return (c);
 }
-
-#ifndef HAVE_STRICMP
- 
-int
-stricmp(s1,s2)
-char *s1, *s2;
-{
-    char c, d;
-
-    while (*s2) {
-        c = *s1;
-        d = *s2;
-        if (c == '\0') return -1;
-        if (isupper(c)) c = tolower(c);
-        if (isupper(d)) d = tolower(d);
-        if (c != d) return c-d;
-        s1++;
-        s2++;
-    }
-    return (0);
-}
-
-#endif
-
 
 
 #ifdef MSDOS
@@ -381,7 +357,7 @@ cprint(i,s)
 int i;
 char *s;
 {
-    (void) fprintf(cp_out,s);
+    (void) fprintf(cp_out,"%s",s);
     (void) fflush(cp_out);
 }
 

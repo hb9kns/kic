@@ -497,7 +497,7 @@ char *cname;
     while (*p) {
         newtok(&p,tok);
 #ifdef MSDOS
-        if (!stricmp(tok,cname))
+        if (!strcasecmp(tok,cname))
 #else
         if (!strcmp(tok,cname))
 #endif

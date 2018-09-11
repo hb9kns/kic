@@ -1,6 +1,6 @@
 /*************************************************************************
  XMFB X-Window MFB emulation package
- Authore: Peter C. Vernam, C. S. Draper Laboratory, 1989
+ Authors: Peter C. Vernam, C. S. Draper Laboratory, 1989
           Stephen R. Whiteley, 1992
  *************************************************************************/
 
@@ -121,7 +121,7 @@ int NUM_XMFB_COLORS = 40;
 MFB *MFBCurrent;
 
 #if __STDC__
-extern void fatal_error();
+extern void fatal_error(const char*);
 extern int MFBXError(Display*, XErrorEvent*);
 static int fixup(int*);
 static void draw_full_screen_cursor(void);
@@ -1277,7 +1277,7 @@ int colorID1,colorID2;
 
     if (colorID1 >= mfb_maxColors || colorID1 < 0)
         return MFBBADCST;
-    if (colorID1 == 0 || mfb_colors[colorID1] < 0)
+    if (colorID1 == 0 || (int)mfb_colors[colorID1] < 0)
         colorID1 = 1;
     myforeg.pixel = mfb_colors[colorID1];
     mybackg.pixel = mfb_colors[0];
@@ -1998,10 +1998,8 @@ MFBAudio()
 }
 
 
-int
-MFBInfo(Info)
-
-int Info;
+long
+MFBInfo(int Info)
 {
     /*
      * Notes:
@@ -2118,7 +2116,7 @@ int Info;
     case ACTIONTIME:
         return mfb_actionTime;
     case FONTNAME:
-        return (int)mfb_fontName;
+        return (long)mfb_fontName;
     case CURSORSHAPE:
         return mfb_cursorShape;
     case FULLSCREENCURSOR:

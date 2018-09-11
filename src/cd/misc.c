@@ -3,16 +3,9 @@
 
 /* Some library functions that might not be around. */
 
-/* for compilers that whine about an empty file */
-char *buffalo_chip;
-
-#ifndef HAVE_STRLWR
-/* library does not have the strlwr() function */
 
 char *
-strlwr(string)
-
-char *string;
+to_lower_case(char *string)
 {
     char *s = string;
 
@@ -24,15 +17,12 @@ char *string;
     return string;
 }
 
-#endif
 
-
-#ifndef HAVE_STRICMP
+#ifndef NOTUSED
 /* library does not have the stricmp(), strnicmp() functions */
 
 int
-stricmp(s1,s2)
-char *s1, *s2;
+stricmp(char *s1, char *s2)
 {
     char c, d;
 
@@ -50,9 +40,7 @@ char *s1, *s2;
 }
 
 int
-strnicmp(s1,s2,n)
-char *s1, *s2;
-int n;
+strnicmp(char *s1, char *s2, int n)
 {
     char c, d;
 

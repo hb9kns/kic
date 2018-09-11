@@ -6,26 +6,10 @@
 
 /* Superconducting Microstripline Model */
 
+#include "sline.h"
 #include <stdio.h>
 #include <math.h>
 
-struct params {
-    double lthick;
-    double ldepth;
-    double gpthick;
-    double gpdepth;
-    double dthick;
-    double dielcon;
-    double lwidth;
-    double llength;
-};
-
-struct output {
-    double L;
-    double C;
-    double Z;
-    double T;
-};
 
 #define EP 8.85416e-6
 #define MU 1.256637
@@ -36,9 +20,7 @@ struct output {
 #define MAX(x,y) (((x)>(y)) ? (x) : (y))
 
 void
-sline(tl, out)
-struct params *tl;
-struct output *out;
+sline(struct params *tl, struct output *out)
 {
     double p, pp, eta, lnra, rb, rb0;
     double cap, zz, gind, kappa, aa;

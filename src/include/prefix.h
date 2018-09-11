@@ -10,26 +10,10 @@
  */
 #include <stdio.h>
 
-#ifndef HAVE_STRLWR
-#ifdef __STDC__
-extern char *strlwr(char*);
-#else
-extern char *strlwr();
-#endif
-#endif
-
-#ifndef HAVE_STRICMP
-#ifdef __STDC__
-extern int stricmp(char*, char*);
-extern int strnicmp(char*, char*, int);
-#else
-extern int stricmp();
-extern int strnicmp();
-#endif
-#endif
-
 /* default basename for layer description file */
 #define TECHNAME "kic_tech"
+
+extern char *to_lower_case(char*);
 
 /* where file locations are set */
 #if __STDC__

@@ -469,7 +469,7 @@ char *argv[];
         STARTUPINFO si;
         GetStartupInfo(&si);
         if (!si.lpTitle ||
-                ((t = strrchr(si.lpTitle, '.')) != 0 && !stricmp(t, ".lnk")))
+                ((t = strrchr(si.lpTitle, '.')) != 0 && !strcasecmp(t, ".lnk")))
             FreeConsole();
     }
 #endif
@@ -1264,7 +1264,7 @@ Help()
                 strcpy(Parameters.kpCommand,"a45s");
 
             sprintf(cmd,"%s",Parameters.kpCommand);
-            strlwr(cmd);
+            to_lower_case(cmd);
             if ((c = strchr(cmd,' ')) != NULL) *c = '\0';
             if (!cmd[0])
                 continue;

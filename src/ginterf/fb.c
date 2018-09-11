@@ -692,7 +692,7 @@ int x, y, bg, fg, cc;
             MFBText(editC,editX + (int)(editC-editBuf)*FB.fFontWidth,editY,0);
             strcpy(tbuf,editC);
             *editC = (char) k;
-            sprintf(++editC,tbuf);
+            strcpy(++editC,tbuf);
             ctmp[0] = *editC;
             MFBSetColor(fg);
             MFBText(editC-1,

@@ -11,7 +11,7 @@ fi
 program=kic
 
 # The inno packager exeutable.
-inno="/inno-5.2.2/iscc"
+inno="/inno-5.5.1/iscc"
 
 topdir=data
 rm -rf $topdir
@@ -28,14 +28,14 @@ mkdir $lib
 mkdir $kic
 
 echo Copying files for export ...
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kic.exe $bin
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/ciftokic.exe $bin
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kichelp.exe $bin
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kictocif.exe $bin
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kictostr.exe $bin
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/kicscale.exe $bin
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/strmtext.exe $bin
-install -sc -m 0755 -o Administrator -g None $srclib/src/bin/strtokic.exe $bin
+install -sc -m 0755 $srclib/src/bin/kic.exe $bin
+install -sc -m 0755 $srclib/src/bin/ciftokic.exe $bin
+install -sc -m 0755 $srclib/src/bin/kichelp.exe $bin
+install -sc -m 0755 $srclib/src/bin/kictocif.exe $bin
+install -sc -m 0755 $srclib/src/bin/kictostr.exe $bin
+install -sc -m 0755 $srclib/src/bin/kicscale.exe $bin
+install -sc -m 0755 $srclib/src/bin/strmtext.exe $bin
+install -sc -m 0755 $srclib/src/bin/strtokic.exe $bin
 
 cp $srclib/startup/* $kic
 utod $kic/*

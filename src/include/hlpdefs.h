@@ -43,7 +43,7 @@ typedef struct wordlist wordlist;
 #define TMALLOC tmalloc
 
 #define eq(x,y) (!strcmp((x),(y)))
-#define cieq(x,y) (!stricmp((x),(y)))
+#define cieq(x,y) (!strcasecmp((x),(y)))
 
 #if __STDC__
 extern char *tmalloc(unsigned);

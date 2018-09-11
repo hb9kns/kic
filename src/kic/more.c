@@ -185,6 +185,7 @@ more_prompt()
         View->kvLargeCoarseViewport->kaBottom+1,
         "      --More--");
     InChar = FBGetchar(ERASE);
+    (void)InChar;
 
     MoreAt = 0;
     s = MoreBuffer;

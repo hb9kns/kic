@@ -298,7 +298,7 @@ get_from_registry()
 
 
 void
-fatal_error(char *msg)
+fatal_error(const char *msg)
 {
     if (!msg)
         msg = "Unknown error.";

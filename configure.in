@@ -5,7 +5,7 @@ dnl $Id$
 
 dnl *** Initialize
 AC_INIT(src/bin/kicmain.c)
-VERSION="2.4b"
+VERSION="2.4c"
 DATE=`/bin/date`
 AC_SUBST(prefix)
 AC_SUBST(VERSION)
@@ -16,15 +16,23 @@ AC_PROG_CC
 dnl text for MS Windows environmnet
 AC_CYGWIN
 AC_MINGW32
-if test x$MINGW32 = x"yes"; then
-    NTSUFFIX=".exe"
-    FILTER="|sed -e s///"
-    RESOURCE="kicrc.o"
-    NOCONS="-mwindows"
-    INSTALL_USER="-o Administrator -g Everyone"
-elif test x$CYGWIN = x"yes"; then
-    NTSUFFIX=".exe"
-    INSTALL_USER="-o Administrator -g Everyone"
+WIN32=no
+if test x$MINGW32 = xyes -o x$CYGWIN = xyes; then
+dnl *** Use native graphics in Windows.  We could alternatively build
+dnl *** an X version, at least under Cygwin.
+    WIN32=yes
+fi
+if test x$MINGW32 = xyes -o x$CYGWIN = xyes; then
+    if test $WIN32 = yes; then
+        NTSUFFIX=".exe"
+        FILTER="|sed -e s///"
+        RESOURCE="kicrc.o"
+        NOCONS="-mwindows"
+        INSTALL_USER="-o Administrator -g Everyone"
+    elif test x$CYGWIN = x"yes"; then
+        NTSUFFIX=".exe"
+        INSTALL_USER="-o Administrator -g Everyone"
+    fi
 fi
 AC_SUBST(NTSUFFIX)
 AC_SUBST(FILTER)
@@ -38,7 +46,7 @@ if test -f /bin/arch; then
     fi
 fi
 if test "$GCC" = yes; then
-    DEPEND_PROG="gcc -MM"
+    DEPEND_PROG="cc -MM"
     if test x$SUN4 = x"yes"; then
         dnl Solaris 8 with gcc: the ctype macros use arrays, which
         dnl cause "char subscript" warnings, so these are turned off.
@@ -70,7 +78,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(DEPEND_PROG)
 AC_SUBST(INSTALL)
 AC_SUBST(INSTALL_USER)
-if test x$MINGW32 != x"yes"; then
+if test $WIN32 = no; then
     MFB="../xmfb.a"
 fi
 AC_SUBST(MFB)
@@ -87,9 +95,10 @@ AC_STRUCT_TM
 dnl *** Check for needed libraries
 dnl reverse order of link, order is important
 AC_CHECK_LIB(m, main)
+AC_CHECK_LIB(X11, main)
 AC_PATH_XTRA
 
-if test x$MINGW32 = x"yes"; then
+if test $WIN32 = yes; then
     LIBS="-lgdi32 -lwinspool -lcomdlg32 -lole32 -loleaut32 -luuid \
  -lodbc32 -lversion -lcomctl32 -lwsock32 -lws2_32 $LIBS"
 else
@@ -98,11 +107,14 @@ fi
 
 CFLAGS="$CFLAGS -DUSE_OLD_MALLOC"
 AC_CHECK_HEADER(sys/ioctl.h, CFLAGS="$CFLAGS -DHAVE_SYS_IOCTL_H")
-AC_CHECK_FUNC(strlwr,  CFLAGS="$CFLAGS -DHAVE_STRLWR")
-AC_CHECK_FUNC(stricmp,  CFLAGS="$CFLAGS -DHAVE_STRICMP")
+dnl AC_CHECK_FUNC(strlwr,  CFLAGS="$CFLAGS -DHAVE_STRLWR")
+dnl AC_CHECK_FUNC(stricmp,  CFLAGS="$CFLAGS -DHAVE_STRICMP")
 
 dnl *** Perform subsitutions and create headers
-if test x$MINGW32 != x"yes"; then
+if test x$MINGW32 = xyes -o x$CYGWIN = xyes; then
+    pkg="msw_package/Makefile"
+fi
+if test $WIN32 = no; then
     xmfb="src/xmfb/Makefile"
 fi
 AC_OUTPUT(
@@ -113,5 +125,6 @@ AC_OUTPUT(
     src/help/Makefile
     src/kic/Makefile
     $xmfb
+    $pkg
 )
 

@@ -32,7 +32,7 @@
 #include <time.h>
 #ifndef WIN32
 #include <sys/types.h>
-#include <sys/timeb.h>
+#include <sys/time.h>
 #include <sys/times.h>
 #endif
 #endif

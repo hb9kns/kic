@@ -17,10 +17,10 @@ is displayed if the script is run without arguments.
 
 ---
 
-*following is the original KIC README file as downloaded May 2014 in*
-<http://wrcad.com/ftp/pub/kic-2.4b.tar.gz>
+*following is the original KIC README file as downloaded September 2018 in*
+<http://wrcad.com/ftp/pub/kic-2.4c.tar.gz>
 
-	README for KIC-2.4b 1/13/09
+	README for KIC-2.4c 11/8/2014
 	
 	Questions, comments, requests, and hate mail should be addressed to
 	Steve Whiteley, stevew@srware.com
@@ -36,6 +36,11 @@ is displayed if the script is run without arguments.
 	#  KIC LAYOUT EDITOR                                                 #
 	#                                                                    #
 	######################################################################
+	
+	Release 2.4c  11/8/14
+	
+	>  Another round of fixes for compiler warnings, etc., and updates
+	   for compatibility with newer Linux distributions.
 	
 	Release 2.4b  1/11/09
 	
@@ -728,3 +733,5 @@ is displayed if the script is run without arguments.
 	    writes over the original cells. If you want to preserve the original
 	    cells, they have to be copied to another name or directory. BE
 	    CAREFUL, EXPERIMENTING WITH THIS PROGRAM CAN CLOBBER YOUR FILES.
+	
+	    

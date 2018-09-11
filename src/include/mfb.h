@@ -92,7 +92,7 @@
 #define CURSORSHAPE      61        /* cursor shape index */
 #define FULLSCREENCURSOR 62        /* full-screen cursor (true/false) */
 
-extern int MFBInfo();
+extern long MFBInfo(int);
 
 #define FALSE 0
 #define TRUE 1

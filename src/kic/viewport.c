@@ -29,6 +29,7 @@
 #endif
 #include "prefix.h"
 #include "kic.h"
+#include "sline.h"
 #ifndef vms
 #ifndef MSDOS
 #include <signal.h>
@@ -291,7 +292,7 @@ ShowElectrical()
             ee->e_parms[7] = Hei;
             c = 'Y';
         }
-        sline(ee->e_parms,o);
+        sline((struct params*)ee->e_parms,(struct output*)o);
         sprintf(buf,"      Along %c: L=%g  C=%g  Z=%g  T=%g",
             c,o[0],o[1],o[2],o[3]);
         ShowPrompt(buf);
@@ -729,7 +730,7 @@ int Index;
     for (j = 0; Menu[j].mEntry; j++) {
         if (Index == j) continue;
         strcpy(m2,Menu[j].mEntry);
-        if (!stricmp(m1,m2)) {
+        if (!strcasecmp(m1,m2)) {
             if (*Menu[Index].mEntry != ' ')
                 for (k = j; Menu[k].mEntry; k++) {
                     strcpy(Menu[k].mPrefix,Menu[k+1].mPrefix);
@@ -738,7 +739,7 @@ int Index;
                 }
             continue;
         }
-        while (!strnicmp(m1,m2,Count))
+        while (!strncasecmp(m1,m2,Count))
             Count++;
     }
     if (Count > 5) Count = 5;

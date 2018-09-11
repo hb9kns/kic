@@ -10,9 +10,9 @@ uninstall::
 
 clean::
 	cd src/bin; $(MAKE) clean
-	cd msw_package; $(MAKE) clean
+	# cd msw_package; $(MAKE) clean
 
 distclean::
 	cd src/bin; $(MAKE) distclean
-	cd msw_package; $(MAKE) distclean
-	-rm config.cache config.log config.status
+	# cd msw_package; $(MAKE) distclean
+	-rm -rf autom4te.cache config.cache config.log config.status

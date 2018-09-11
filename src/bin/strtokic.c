@@ -357,7 +357,7 @@ char *av[];
             if (fp) {
                 printf("Using tech file %s\n",TECHFILE);
                 read_tech_layers(fp);
-                sprintf(LayerFile,TECHFILE);
+                sprintf(LayerFile,"%s",TECHFILE);
                 UseLayerTable = 1;
                 fclose(fp);
             }
@@ -418,7 +418,7 @@ char *av[];
     while ((type = get_record(cbuf)) != 4)
         if (type == 6) {
             if (TOLWR)
-                strlwr(cbuf);
+                to_lower_case(cbuf);
             new_symbol(cbuf);
         }
     printf("done.\n");
@@ -660,7 +660,7 @@ HEADLIST *SymbolProps;
     int type;
 
     if (TOLWR)
-        strlwr(cbuf);
+        to_lower_case(cbuf);
     CurrentLayer = CurrentDataType = CurrentAttribute = -1;
     /* search for symbol number */
     index = struct_index(cbuf);
@@ -905,7 +905,7 @@ char *cbuf;
 
         case SNAME:
             if (TOLWR)
-                strlwr(cbuf);
+                to_lower_case(cbuf);
             index = struct_index(cbuf);
             break;
 
@@ -1005,7 +1005,7 @@ char *cbuf;
 
         case SNAME:
             if (TOLWR)
-                strlwr(cbuf);
+                to_lower_case(cbuf);
             index = struct_index(cbuf);
             break;
 
@@ -1219,6 +1219,7 @@ char *cbuf;
         dtype = getc(STREAMFILE);
         rtype = getc(STREAMFILE);
     }
+    (void)dtype;
     size  = byte0*256 + byte1 - 4;
     if (size < 0) size = 0;
 
@@ -1345,7 +1346,7 @@ char *name;
     if (NumSymbols >= MAXSYMBOLS)
         err_fatal_2("Exceeded maximum symbol count of",MAXSYMBOLS);
     SymbolNames[NumSymbols] = tmalloc(strlen(name)+1);
-    sprintf(SymbolNames[NumSymbols],name);
+    strcpy(SymbolNames[NumSymbols],name);
     NumSymbols++;
 }
 
@@ -1530,12 +1531,12 @@ FILE *fp;
     NumLayerTable = 0;
     name[0] = '\0';
     while (fgets(buf,512,fp) != NULL) {
-        if (!strnicmp(buf,"layername",9)) {
+        if (!strncasecmp(buf,"layername",9)) {
             if (sscanf(buf + 10,"%s",name) != 1)
                 err_fatal(errmsg,buf);
             continue;
         }
-        if (!strnicmp(buf,"streamdata",10)) {
+        if (!strncasecmp(buf,"streamdata",10)) {
             char *t = buf + 10;
             if (!name[0])
                 err_fatal(errmsg,"misplaced streamdata");
@@ -1752,7 +1753,7 @@ char *str,*what;
     char buf[128];
 
     sprintf(buf,"\nError: %s %s.\n",str,what);
-    fprintf(stderror,buf);
+    fprintf(stderror,"%s",buf);
     exit(1);
 }
 
@@ -1765,7 +1766,7 @@ char *str,*what;
     char buf[128];
 
     sprintf(buf,"\nError: %s %s at offset %d.\n",str,what,CurrentOffset);
-    fprintf(stderror,buf);
+    fprintf(stderror,"%s",buf);
     exit(1);
 }
 
@@ -1779,7 +1780,7 @@ int type;
     char buf[128];
 
     sprintf(buf,"\nError: %s %d at offset %d.\n",str,type,CurrentOffset);
-    fprintf(stderror,buf);
+    fprintf(stderror,"%s",buf);
     exit(1);
 }
 
@@ -1793,7 +1794,7 @@ char *str,*which,*what;
 
     sprintf(buf,"\nWarning: %s for instance %s in symbol %s at offset %d.\n",
         str,which,what,CurrentOffset);
-    fprintf(stderror,buf);
+    fprintf(stderror,"%s",buf);
 }
 
 

@@ -177,7 +177,7 @@ FromGDSII()
     while ((type = get_record(cbuf)) != 4)
         if (type == 6) {
             if (TOLWR)
-                strlwr(cbuf);
+                to_lower_case(cbuf);
             new_symbol(cbuf);
         }
     rewind(StreamFile);
@@ -312,7 +312,7 @@ int *struct_dates;
     char *c;
 
     if (TOLWR)
-        strlwr(cbuf);
+        to_lower_case(cbuf);
     CurrentLayer = CurrentDataType = CurrentAttribute = -1;
     /* search for symbol number */
     index = struct_index(cbuf);
@@ -526,7 +526,7 @@ char *cbuf;
 
         case SNAME:
             if (TOLWR)
-                strlwr(cbuf);
+                to_lower_case(cbuf);
             index = struct_index(cbuf);
             break;
 
@@ -621,7 +621,7 @@ char *cbuf;
 
         case SNAME:
             if (TOLWR)
-                strlwr(cbuf);
+                to_lower_case(cbuf);
             index = struct_index(cbuf);
             break;
 
