@@ -1,19 +1,23 @@
-# KIC layout editor, ver.2.4b
+# KIC layout editor, version 2.4c
 
 KIC is a small layout editor capable of working with GDSII files
 of medium complexity. It is quite dated now, and probably should
-no longer be used for real work.
+no longer be used for real (big) work.
+
+However, I personally continue to use it at my
+[workplace]( http://www.first.ethz.ch ),
+and have just installed it on my laptop running FreeBSD 11.2 with Xorg.
 
 An excellent alternative is `XIC` which is available from the
 website of [Whiteley Research Inc.]( http://www.wrcad.com )
 Recently, it has been put into the open-source domain; sources can
 be found on <https://github.com/wrcad/xictools> .
 
-A short shell script `kictree` has been added, which allows to search
-recursively in a KIC file for references to other files. A short help
-is displayed if the script is run without arguments.
+A small shell script `kictree` has been added, which allows to search
+recursively in a KIC file for references to other files. A brief help
+message is displayed if the script is run without arguments.
 
-*(2018-Jan, Y.Bonetti)*
+*(2018-9-11, Y.Bonetti HB9KNS)*
 
 ---
 
